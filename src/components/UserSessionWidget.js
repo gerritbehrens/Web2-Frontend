@@ -17,7 +17,7 @@ class UserSessionWidget extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
+            userID: '',
             password: ''
         }
         this.handleShow = this.handleShow.bind(this)
@@ -45,10 +45,10 @@ class UserSessionWidget extends Component {
 
     handleSubmit(e){
         e.preventDefault()
-        const {username, password} = this.state
+        const {userID, password} = this.state
         const {authenticateUserAction} = this.props
 
-        authenticateUserAction(username, password)
+        authenticateUserAction(userID, password)
     }
 
     handleLogout(e) {
@@ -71,7 +71,7 @@ class UserSessionWidget extends Component {
             buttonState = <Button id="LogoutButton" variant="dark" onClick={this.handleLogout}>Logout</Button>
         }
         else{
-            buttonState = <Button id="OpenLoginDialog" variant="light" onClick={this.handleShow}>Login</Button>
+            buttonState = <Button id="OpenLoginDialogButton" variant="light" onClick={this.handleShow}>Login</Button>
         }
 
         return (
@@ -85,17 +85,17 @@ class UserSessionWidget extends Component {
 
                     <Modal.Body>
                         <Form>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Group className="mb-3">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" placeholder="Name" name='username' onChange={this.handleChange} />
+                                <Form.Control id="LoginUserIDInput" type="text" placeholder="User ID" name="userID" onChange={this.handleChange} />
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Group className="mb-3">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" name='password' onChange={this.handleChange} />
+                                <Form.Control id="LoginPasswordInput" type="password" placeholder="Password" name='password' onChange={this.handleChange} />
                             </Form.Group>
-                            <Button variant="secondary" type="submit" onClick={this.handleSubmit}>
-                                Submit
+                            <Button id="LoginButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                                Login
                             </Button>
                         </Form>
                     </Modal.Body>

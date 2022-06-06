@@ -45,8 +45,8 @@ export function getAuthenticateUserErrorAction(error) {
 export function getLogoutUserAction(){
 	return {
 		type: LOGOUT_USER,
-        userID: "",
-        accessToken: ""
+        userID: '',
+        accessToken: ''
 	}
 }
 
@@ -81,6 +81,8 @@ function login(userID, password) {
                    'Authorization' : 'Basic ' + base64credentials }
         
     }
+
+    console.log(userID + password)
 
     return fetch('https://localhost/authenticate', requestOptions)
         .then(handleResponse)
