@@ -44,7 +44,9 @@ export function getAuthenticateUserErrorAction(error) {
 
 export function getLogoutUserAction(){
 	return {
-		type: LOGOUT_USER
+		type: LOGOUT_USER,
+        userID: "",
+        accessToken: ""
 	}
 }
 

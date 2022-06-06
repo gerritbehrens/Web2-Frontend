@@ -14,7 +14,7 @@ class TopMenue extends Component {
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">
-                        <img width="204" height= "60" src={Logo} alt="Logo" />
+                        <img width="204" height="60" src={Logo} alt="Logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -29,11 +29,11 @@ class TopMenue extends Component {
                                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                        <UserSessionWidget/>
+                        <UserSessionWidget />
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
+
         )
     }
 }

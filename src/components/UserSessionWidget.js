@@ -24,17 +24,16 @@ class UserSessionWidget extends Component {
         this.handleClose = this.handleClose.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
     handleShow(e) {
         e.preventDefault();
-        //this.setState({show: true})
         const { showLoginDialogAction } = this.props
         showLoginDialogAction()
     }
 
     handleClose() {
-        //this.setState({show: false})
         const { hideLoginDialogAction } = this.props
         hideLoginDialogAction()
     }
@@ -42,7 +41,6 @@ class UserSessionWidget extends Component {
     handleChange(e) {
         const { name, value } = e.target
         this.setState( { [name]: value } )
-        console.log(JSON.stringify(this.state))
     }
 
     handleSubmit(e){
@@ -51,7 +49,12 @@ class UserSessionWidget extends Component {
         const {authenticateUserAction} = this.props
 
         authenticateUserAction(username, password)
-        console.log("Pushed submit")
+    }
+
+    handleLogout(e) {
+        e.preventDefault()
+        const {logoutAction} = this.props
+        logoutAction()
     }
 
     render() {
@@ -61,11 +64,19 @@ class UserSessionWidget extends Component {
             showDialog = false
         }
 
+        const token = this.props.accessToken
+        let buttonState
+
+        if(token){
+            buttonState = <Button id="LogoutButton" variant="dark" onClick={this.handleLogout}>Logout</Button>
+        }
+        else{
+            buttonState = <Button id="OpenLoginDialog" variant="light" onClick={this.handleShow}>Login</Button>
+        }
+
         return (
             <div>
-                <Button variant="secondary" onClick={this.handleShow}>
-                    Login
-                </Button>
+                {buttonState}
 
                 <Modal show={showDialog} onHide={this.handleClose}>
                     <Modal.Header closeButton>
@@ -101,7 +112,8 @@ class UserSessionWidget extends Component {
 const mapDispatchToProps = dispatch => bindActionCreators({
     showLoginDialogAction: authenticationActions.getShowLoginDialogAction,
     hideLoginDialogAction: authenticationActions.getHideLoginDialogAction,
-    authenticateUserAction: authenticationActions.authenticateUser
+    authenticateUserAction: authenticationActions.authenticateUser,
+    logoutAction: authenticationActions.getLogoutUserAction
 }, dispatch)
 
 const ConnectedUserSessionWidget = connect(mapStateToProps, mapDispatchToProps)(UserSessionWidget)
