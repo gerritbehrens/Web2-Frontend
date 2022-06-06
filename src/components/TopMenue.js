@@ -5,13 +5,17 @@ import { Nav } from "react-bootstrap";
 import { NavDropdown } from "react-bootstrap";
 import UserSessionWidget from "./UserSessionWidget";
 
+import Logo from "../images/BHT_Logo_horizontal_Anthrazit_transparent.svg";
+
 class TopMenue extends Component {
 
     render() {
         return (
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <img width="204" height= "60" src={Logo} alt="Logo" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
@@ -29,6 +33,7 @@ class TopMenue extends Component {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            
         )
     }
 }

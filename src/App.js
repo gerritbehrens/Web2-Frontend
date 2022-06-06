@@ -1,14 +1,39 @@
 import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import TopMenue from './components/TopMenue';
 import PublicPage from './components/PublicPage';
+import PrivatePage from './components/PrivatePage';
 
-function App() {
-  return (
-    <div className="App">
-      <TopMenue />
-      <PublicPage />
-    </div>
-  );
+const mapStateToProps = state =>{
+  return state
 }
 
-export default App;
+class App extends Component{
+  
+  render() {
+
+    const token = this.props.accessToken
+
+    let workspace 
+
+    if(token){
+      workspace = <PrivatePage />
+    }
+    else{
+      workspace = <PublicPage />
+    }
+
+    return (
+    <div className="App">
+      <TopMenue />
+      {workspace}
+    </div>
+  );
+  }
+  
+}
+
+
+
+export default connect(mapStateToProps)(App);

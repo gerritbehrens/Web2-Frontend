@@ -6,21 +6,21 @@ import { connect } from "react-redux";
 import { getShowLoginDialogAction } from "../actions/AuthenticationsActions";
 
 class LoginButton extends Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props)
         this.showLoginDialog = this.showLoginDialog.bind(this)
     }
 
-    showLoginDialog(){
+    showLoginDialog() {
         const dispatch = this.props.dispatch
         dispatch(getShowLoginDialogAction())
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <Button variant="dark" onClick={this.showLoginDialog}>
+                <Button id="OpenLoginDialogButton" variant="light" onClick={this.showLoginDialog} >
                     Login
                 </Button>
             </div>

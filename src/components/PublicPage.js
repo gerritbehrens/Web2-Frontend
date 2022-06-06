@@ -5,10 +5,10 @@ class PublicPage extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Willkommen to MYForum</h1>
+            <div className="page-content" id="LandingPage" style={{ background: 'white' }}>
+                <h1>Welcome to MYForum</h1>
                 <p>Here you can talk to each other in a friendly way about any topic!</p>
-                <LoginButton/>
+                <LoginButton />
             </div>
         )
     }
