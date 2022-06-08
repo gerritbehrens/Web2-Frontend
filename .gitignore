@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-package.json
 package-lock.json
 
 # testing
@@ -17,7 +16,7 @@ package-lock.json
 .DS_Store
 .env.local
 .env.development.local
-.env.test.local
+.env.test.localq
 .env.production.local
 
 npm-debug.log*
