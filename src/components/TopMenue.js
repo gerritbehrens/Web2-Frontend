@@ -9,6 +9,7 @@ import Logo from "../images/BHT_Logo_horizontal_Anthrazit_transparent.svg";
 import { bindActionCreators } from "redux";
 import * as authenticationActions from "../actions/AuthenticationsActions"
 import { connect } from "react-redux"
+import { Buffer } from "buffer";
 
 const mapStateToProps = state => {
     return state
@@ -19,15 +20,16 @@ function isUserAdmin(token) {
     
     if (token) {
         //Decode and split Base64
-        const credentials = Buffer.from(token, 'base64').toString('ascii');
-        const [isAdmin] = credentials.split(',');
+        const credentials = Buffer.from(token, 'base64').toString('ascii')
+        console.log("Encoded credentials: " + credentials)
+        const isAdmin = credentials.split(',')[3];
 
         //Extract userID- and isAdministrator-Value
         const isAdministrator = isAdmin.split(':')[1]
 
-        console.log(isAdministrator + token)
+        console.log(isAdministrator + " " + token)
 
-        if (isAdministrator) return true
+        if (isAdministrator === "true") return true
         else return false
     }
     else{
@@ -42,8 +44,8 @@ class TopMenue extends Component {
         this.handleRoute = this.handleRoute.bind(this)
     }
     
-    handleRoute() {
-       console.log("Handle Route")
+    handleRoute(e) {
+        console.log("Handle Route")
     }
 
     render() {
