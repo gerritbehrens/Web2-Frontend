@@ -9,8 +9,6 @@ export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR"
 
 export const LOGOUT_USER = "LOGOUT_USER"
 
-export const SHOW_USER_MANAGEMENT = "SHOW_USER_MANAGEMENT"
-
 export function getShowLoginDialogAction() {
     return {
         type: SHOW_LOGIN_DIALOG
@@ -50,12 +48,6 @@ export function getLogoutUserAction(){
         userID: '',
         accessToken: ''
 	}
-}
-
-export function getUserManagement(){
-    return{
-        type: SHOW_USER_MANAGEMENT,
-    }
 }
 
 export function authenticateUser(userID, password) {
