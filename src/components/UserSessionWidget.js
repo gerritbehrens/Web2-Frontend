@@ -65,13 +65,19 @@ class UserSessionWidget extends Component {
         }
 
         const token = this.props.accessToken
+        const error = this.props.error
         let buttonState
+        let wrongLogin
 
         if(token){
             buttonState = <Button id="LogoutButton" variant="dark" onClick={this.handleLogout}>Logout</Button>
         }
         else{
             buttonState = <Button id="OpenLoginDialogButton" variant="light" onClick={this.handleShow}>Login</Button>
+        }
+
+        if(error){
+            wrongLogin = <p class="text-danger">User ID or password was wrong!</p>
         }
 
         return (
@@ -94,9 +100,11 @@ class UserSessionWidget extends Component {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control id="LoginPasswordInput" type="password" placeholder="Password" name='password' onChange={this.handleChange} />
                             </Form.Group>
+                            {wrongLogin}
                             <Button id="LoginButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
                                 Login
                             </Button>
+                            
                         </Form>
                     </Modal.Body>
 
