@@ -9,6 +9,8 @@ export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR"
 
 export const LOGOUT_USER = "LOGOUT_USER"
 
+export const SHOW_USER_MANAGEMENT = "SHOW_USER_MANAGEMENT"
+
 export function getShowLoginDialogAction() {
     return {
         type: SHOW_LOGIN_DIALOG
@@ -50,6 +52,12 @@ export function getLogoutUserAction(){
 	}
 }
 
+export function getUserManagement(){
+    return{
+        type: SHOW_USER_MANAGEMENT,
+    }
+}
+
 export function authenticateUser(userID, password) {
     console.log("Authenticate")
 
@@ -81,9 +89,6 @@ function login(userID, password) {
                    'Authorization' : 'Basic ' + base64credentials }
         
     }
-
-    console.log(userID + password)
-
     return fetch('https://localhost/authenticate', requestOptions)
         .then(handleResponse)
         .then(userSession => {
