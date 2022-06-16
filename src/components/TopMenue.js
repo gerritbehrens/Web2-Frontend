@@ -4,20 +4,11 @@ import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import { NavDropdown } from "react-bootstrap";
 import UserSessionWidget from "./UserSessionWidget";
-import UserManagementPage from "./UserManagementPage";
-import App from "../App";
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    NavLink
-} from "react-router-dom";
 
 import Logo from "../images/BHT_Logo_horizontal_Anthrazit_transparent.svg";
 import { connect } from "react-redux"
 import { Buffer } from "buffer";
-import PublicPage from "./PublicPage";
+import {BrowserRouter as Router, Link} from "react-router-dom"
 
 const mapStateToProps = state => {
     return state
@@ -55,43 +46,36 @@ class TopMenue extends Component {
         let usermanagement
         if (isUserAdmin(this.props.accessToken)) {
             usermanagement =
-                    <Nav.Link to="/userManagement" id="OpenUserManagementButton">
-                        User Management
-                    </Nav.Link>
+                <Link to="/usermanagement" id="OpenUserManagementButton" className="nav-link">
+                    User Management
+                </Link>
         }
         return (
-            <Router>
-                <Navbar bg="light" expand="lg">
-                    <Container>
-                        <Navbar.Brand href="#home">
-                            <img width="204" height="60" src={Logo} alt="Logo" />
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar bg="light" expand="lg">
+                <Container>
+                    <Navbar.Brand href="#home">
+                        <img width="204" height="60" src={Logo} alt="Logo" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
 
-                            <Nav className="me-auto">
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                {usermanagement}
-                                
-                                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown>
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">Home</Nav.Link>
+                            {usermanagement}
 
-                            </Nav>
-                            <UserSessionWidget />
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
-                <Routes>
-                    
-                    <Route path="/usermanagement" element={<UserManagementPage />}></Route>
-                </Routes>
-            </Router>
+                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            </NavDropdown>
 
+                        </Nav>
+                        <UserSessionWidget />
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         )
     }
 }

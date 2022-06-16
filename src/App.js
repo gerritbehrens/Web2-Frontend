@@ -4,34 +4,47 @@ import { connect } from 'react-redux'
 import TopMenue from './components/TopMenue';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
+import UserManagementPage from './components/UserManagementPage'
 
-const mapStateToProps = state =>{
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+const mapStateToProps = state => {
   return state
 }
 
-class App extends Component{
-  
+class App extends Component {
+
   render() {
 
     const token = this.props.accessToken
 
-    let workspace 
+    let workspace
 
-    if(token){
+    if (token) {
       workspace = <PrivatePage />
     }
-    else{
+    else {
       workspace = <PublicPage />
     }
 
     return (
-    <div className="App">
-      <TopMenue />
-      {workspace}
-    </div>
-  );
+      <div className="App">
+        <Router>
+          <TopMenue />
+          <Routes>
+            <Route path="/" element={workspace} />
+            <Route path="/usermanagement" element={<UserManagementPage />} />
+          </Routes>
+        </Router >
+      </div>
+
+    );
   }
-  
+
 }
 
 
