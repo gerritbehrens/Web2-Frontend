@@ -55,9 +55,9 @@ class TopMenue extends Component {
         let usermanagement
         if (isUserAdmin(this.props.accessToken)) {
             usermanagement =
-                    <NavLink to="/userManagement" id="OpenUserManagementButton">
+                    <Nav.Link to="/userManagement" id="OpenUserManagementButton">
                         User Management
-                    </NavLink>
+                    </Nav.Link>
         }
         return (
             <Router>
@@ -87,7 +87,7 @@ class TopMenue extends Component {
                     </Container>
                 </Navbar>
                 <Routes>
-                    <Route path="/" element={<PublicPage/>}></Route>
+                    
                     <Route path="/usermanagement" element={<UserManagementPage />}></Route>
                 </Routes>
             </Router>
