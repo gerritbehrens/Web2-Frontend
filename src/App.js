@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import TopMenue from './components/TopMenue';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
-import UserManagementPage from './components/UserManagementPage'
+import UserManagement from './components/UserManagement'
 
 import {
   BrowserRouter as Router,
@@ -37,7 +37,7 @@ class App extends Component {
           <TopMenue />
           <Routes>
             <Route path="/" element={workspace} />
-            <Route path="/usermanagement" element={<UserManagementPage />} />
+            <Route path="/userManagement" element={<UserManagement />} />
           </Routes>
         </Router >
       </div>

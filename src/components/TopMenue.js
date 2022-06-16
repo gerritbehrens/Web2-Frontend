@@ -46,7 +46,7 @@ class TopMenue extends Component {
         let usermanagement
         if (isUserAdmin(this.props.accessToken)) {
             usermanagement =
-                <Link to="/usermanagement" id="OpenUserManagementButton" className="nav-link">
+                <Link to="/userManagement" id="OpenUserManagementButton" className="nav-link">
                     User Management
                 </Link>
         }
@@ -60,10 +60,10 @@ class TopMenue extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
 
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Link to="/" id="OpenPrivatePageButton" className="nav-link">Home</Link>
                             {usermanagement}
 
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown title="More" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
