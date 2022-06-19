@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap"
 import UserCard from "./UserCard"
 
 const UserList = ({users}) => {
-	
 	return(
 
 		<Container>

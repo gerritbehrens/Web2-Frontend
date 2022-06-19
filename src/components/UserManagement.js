@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import UserList from "./UserList";
+import {Button} from "react-bootstrap";
+import UserDialog from"./UserDialog"
 
 const mapStateToProps = state => {
 	return state
@@ -22,11 +24,9 @@ class UserManagement extends Component {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + this.props.authenticationReducer.accessToken
+				'Authorization': 'Bearer ' + this.props.accessToken
 			}
 		}
-
-        console.log(requestOptions)
 
 		// send request
 		fetch("https://localhost/users", requestOptions)
@@ -39,39 +39,13 @@ class UserManagement extends Component {
 	render(){
 
 		return(
-			<main className="page-content p-3">
+			<main className="page-content p-3" style={{ background: 'white' }}>
 				<h1>User Management</h1>
-				<UserList users={this.state.users} />
+				<UserDialog/>
+					<UserList users={this.state.users} />
 			</main>
 		)
-	}	
+	}
 }
 
 export default connect(mapStateToProps)(UserManagement)
-
-/* import React, { Component } from "react";
-import { connect } from 'react-redux'
-
-const mapStateToProps = state => {
-    return state
-  }
-
-class UserManagement extends Component {
-
-    render() {
-        return (
-            <div className="page-content" id="UserManagementPage">
-                <h1>This is the user management page</h1>
-                <div className="card" style={{width: 400}}>
-                    <div className ="card-body">This is a User!</div>
-                </div>
-
-                <div className="card" style={{width: 400}}>
-                    <div className ="card-body">This is a User!</div>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default connect(mapStateToProps)(UserManagement); */

@@ -50,10 +50,11 @@ class TopMenue extends Component {
                     User Management
                 </Link>
         }
+
         return (
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand to="/">
                         <img width="204" height="60" src={Logo} alt="Logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

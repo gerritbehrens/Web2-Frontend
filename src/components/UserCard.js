@@ -4,15 +4,20 @@ const UserCard = ({ userID, userName, isAdministrator }) => {
 
 	return (
 
-		<Card>
-			<Card.Img variant="top" src="https://plchldr.co/i/100x60" />
-			<Card.Body>
-				<Card.Title>{userID}</Card.Title>
-				<Card.Text>Username: {userName}</Card.Text>
-				<Card.Text>Administrator: {isAdministrator ? 'Ja' : 'Nein'}</Card.Text>
-				<Button variant="primary">Bearbeiten</Button>
-			</Card.Body>
-		</Card>
+	<Card >
+		<Card.Body id={"UserItem" + userID}>
+			<Card.Title align={"left"}>{userID}</Card.Title>
+			<Card.Footer>
+				<p align={"left"}>Username: {userName} <br/>
+					Administrator: {isAdministrator ? 'Ja' : 'Nein'}</p>
+			</Card.Footer>
+
+			<Card.Footer align={"left"}>
+				<Button variant="outline-dark">Bearbeiten</Button>
+				<Button variant="outline-danger">Delete</Button>
+			</Card.Footer>
+		</Card.Body>
+	</Card>
 	)
 }
 

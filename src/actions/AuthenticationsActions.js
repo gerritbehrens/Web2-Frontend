@@ -1,4 +1,3 @@
-//import ConnectedUserSessionWidget from "../components/UserSessionWidget"
 
 export const SHOW_LOGIN_DIALOG = "SHOW_LOGIN_DIALOG"
 export const HIDE_LOGIN_DIALOG = "HIDE_LOGIN_DIALOG"
@@ -43,6 +42,7 @@ export function getAuthenticateUserErrorAction(error) {
 }
 
 export function getLogoutUserAction(){
+
 	return {
 		type: LOGOUT_USER,
         userID: '',
@@ -58,7 +58,7 @@ export function authenticateUser(userID, password) {
         login(userID, password)
             .then(
                 userSession => {
-                    //To call User by ID in WelcomMessage
+                    //To call User by ID in WelcomeMessage
                     userSession.userID = userID
                     const action = getAuthenticateUserSuccessAction(userSession)
                     dispatch(action)
@@ -74,7 +74,7 @@ export function authenticateUser(userID, password) {
 }
 
 function login(userID, password) {
-    var base64credentials = btoa(userID + ":" + password)
+    const base64credentials = btoa(userID + ":" + password);
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type'  : 'application/json',
@@ -107,10 +107,10 @@ function handleResponse(response){
             const error = response.statusText
             return Promise.reject(error)
         } else {
-            let userSession = {
+            console.log(token)
+            return {
                 accessToken: token
             }
-            return userSession
         }
     })
 }

@@ -1,9 +1,11 @@
 import * as authenticationActions from "../actions/AuthenticationsActions";
+import * as userActions from "../actions/UserActions"
 
 const initialState = {
     user: null,
     loginPending: false,
     showLoginDialog: false,
+    showUserDialog: false,
     error: null
 };
 function rootReducer(state = initialState, action) {
@@ -48,6 +50,16 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 user: null,
                 accessToken: null
+            }
+        case userActions.SHOW_USER_DIALOG:
+            return{
+                ...state,
+                showUserDialog: true
+            }
+        case userActions.HIDE_USER_DIALOG:
+            return{
+                ...state,
+                showUserDialog: false
             }
         default:
             return state;

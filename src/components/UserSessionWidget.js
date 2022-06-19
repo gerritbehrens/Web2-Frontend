@@ -8,6 +8,7 @@ import { connect } from "react-redux"
 import * as authenticationActions from "../actions/AuthenticationsActions"
 import { bindActionCreators } from "redux";
 
+
 const mapStateToProps = state => {
     return state
 }
@@ -59,7 +60,7 @@ class UserSessionWidget extends Component {
 
     render() {
 
-        var showDialog = this.props.showLoginDialog
+        let showDialog = this.props.showLoginDialog;
         if (showDialog === undefined) {
             showDialog = false
         }
@@ -70,14 +71,14 @@ class UserSessionWidget extends Component {
         let wrongLogin
 
         if(token){
-            buttonState = <Button id="LogoutButton" variant="dark" onClick={this.handleLogout}>Logout</Button>
+            buttonState = <Button to="/" id="LogoutButton" variant="dark" onClick={this.handleLogout} >Logout</Button>
         }
         else{
             buttonState = <Button id="OpenLoginDialogButton" variant="light" onClick={this.handleShow}>Login</Button>
         }
 
         if(error){
-            wrongLogin = <p class="text-danger">User ID or password was wrong!</p>
+            wrongLogin = <p className="text-danger">User ID or password was wrong!</p>
         }
 
         return (
