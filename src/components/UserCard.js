@@ -5,8 +5,8 @@ const UserCard = ({ userID, userName, isAdministrator }) => {
 	return (
 
 	<Card >
-		<Card.Body id={"UserItem" + userID}>
-			<Card.Title align={"left"}>{userID}</Card.Title>
+		<Card.Body id={"UserItem" + userID} className={"m-2"}>
+			<Card.Title align={"left"}>UserID: {userID}</Card.Title>
 			<Card.Footer>
 				<p align={"left"}>Username: {userName} <br/>
 					Administrator: {isAdministrator ? 'Ja' : 'Nein'}</p>

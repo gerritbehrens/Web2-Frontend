@@ -1,6 +1,15 @@
+import {connect} from "react-redux";
 
 export const SHOW_USER_DIALOG = "SHOW_USER_DIALOG"
 export const HIDE_USER_DIALOG = "HIDE_USER_DIALOG"
+
+export const CREATE_USER_PENDING = "CREATE_USER_PENDING"
+export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS"
+export const CREATE_USER_ERROR   = "CREATE_USER_ERROR"
+
+const mapStateToProps = state => {
+    return state
+}
 
 export function getShowUserDialogAction() {
     return {
@@ -16,6 +25,101 @@ export function getHideUserDialogAction() {
     }
 }
 
+export function getUserCreatePending() {
+    return{
+        type: CREATE_USER_PENDING
+    }
+}
+
+export function getUserCreateSuccess(){
+    return{
+        type: CREATE_USER_SUCCESS
+    }
+}
+
+export function getUserCreateError(error){
+    return{
+        type: CREATE_USER_ERROR,
+        error: error
+    }
+}
+
+export function createUser(userID, userName, password, isAdministrator, token){
+    console.log("Create User")
+
+    return dispatch =>{
+        dispatch(getUserCreatePending())
+        createRequest(userID, userName, password, isAdministrator, token)
+            .then(
+                user => {
+                    dispatch(getUserCreateSuccess())
+                },
+                error => {
+                    dispatch(getUserCreateError(error))
+                }
+            )
+            .catch(error => {
+                dispatch(getUserCreateError(error))
+            })
+    }
+
+}
+
+function createRequest(userID, userName, password, isAdministrator, token){
+    const data = {
+        userID: userID,
+        userName: userName,
+        password: password,
+        isAdministrator: isAdministrator
+    }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(data)
+
+
+    }
+    return fetch('https://localhost/users', requestOptions)
+        .then(handleResponse)
+        .then(user => {
+            return user
+        })
+}
+
+function handleResponse(response){
+
+    return response.text().then(() => {
+        if(!response.ok){
+            if(response.status === 409){
+                console.log("Error 409 Conflict")
+                const error = response.statusText
+                return Promise.reject(error)
+            }
+            if(response.status === 500){
+                console.log("Error 500 Internal Server Error")
+                const error = response.statusText
+                return Promise.reject(error)
+            }
+            if(response.status === 400){
+                console.log("Error 400 Bad Request")
+                const error = response.statusText
+                return Promise.reject(error)
+            }
+        }
+        else{
+            console.log("User Created")
+            return{
+                response
+            }
+        }
+    })
+}
+
+export default connect(mapStateToProps)
 
 
 
