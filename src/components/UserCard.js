@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap"
-import editUserDialog from "./EditUserDialog";
+import EditUserDialog from "./EditUserDialog";
 
 const UserCard = ({ userID, userName, isAdministrator }) => {
 
@@ -14,7 +14,7 @@ const UserCard = ({ userID, userName, isAdministrator }) => {
 			</Card.Footer>
 
 			<Card.Footer align={"left"}>
-				<editUserDialog value={userID}/>
+				<EditUserDialog userID={userID}/>
 				<Button variant="outline-danger">Delete</Button>
 			</Card.Footer>
 		</Card.Body>
