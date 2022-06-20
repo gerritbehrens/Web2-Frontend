@@ -108,7 +108,7 @@ class EditUserDialog extends Component {
                                     Save
                                 </Button>
 
-                                <Button id="SaveUserButton" className="m-sm-1" variant="outline-danger" type="submit" onClick={this.handleSubmit}>
+                                <Button id="SaveUserButton" className="m-sm-1" variant="outline-danger" onClick={this.handleCloseEditDialog}>
                                     Cancel
                                 </Button>
                             </Form.Group>
