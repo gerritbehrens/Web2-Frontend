@@ -22,7 +22,6 @@ class CreateUserDialog extends Component {
         }
         this.handleShow = this.handleShow.bind(this)
         this.handleClose = this.handleClose.bind(this)
-        // this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -36,12 +35,7 @@ class CreateUserDialog extends Component {
         const { hideUserDialogAction } = this.props
         hideUserDialogAction()
     }
-    //
-    // handleChange(e) {
-    //     const { name, value } = e.target
-    //     this.setState( { [name]: value } )
-    // }
-    //
+
     handleSubmit(e){
          e.preventDefault()
          const userID = document.querySelector("#UserIDInput").value

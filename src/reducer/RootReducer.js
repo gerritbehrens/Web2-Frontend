@@ -7,6 +7,7 @@ const initialState = {
     loginPending: false,
     showLoginDialog: false,
     showUserDialog: false,
+    showUserEditDialog: false,
     error: null
 };
 function rootReducer(state = initialState, action) {
@@ -65,12 +66,12 @@ function rootReducer(state = initialState, action) {
         case editUserActions.SHOW_EDIT_USER_DIALOG:
             return{
                 ...state,
-                showUserDialog: true
+                showUserEditDialog: true
             }
         case editUserActions.HIDE_EDIT_USER_DIALOG:
             return{
                 ...state,
-                showUserDialog: false
+                showUserEditDialog: false
             }
         default:
             return state;

@@ -14,7 +14,7 @@ const UserCard = ({ userID, userName, isAdministrator }) => {
 			</Card.Footer>
 
 			<Card.Footer align={"left"}>
-				<EditUserDialog userID={userID}/>
+				<EditUserDialog value1={userID} value2={userName} value3={isAdministrator}/>
 				<Button variant="outline-danger">Delete</Button>
 			</Card.Footer>
 		</Card.Body>

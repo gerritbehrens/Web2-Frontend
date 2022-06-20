@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 
-export const SHOW_EDIT_USER_DIALOG = "SHOW_USER_DIALOG"
-export const HIDE_EDIT_USER_DIALOG = "HIDE_USER_DIALOG"
+export const SHOW_EDIT_USER_DIALOG = "SHOW_EDIT_USER_DIALOG"
+export const HIDE_EDIT_USER_DIALOG = "HIDE_EDIT_USER_DIALOG"
 
-export const EDIT_USER_PENDING = "CREATE_USER_PENDING"
-export const EDIT_USER_SUCCESS = "CREATE_USER_SUCCESS"
-export const EDIT_USER_ERROR   = "CREATE_USER_ERROR"
+export const EDIT_USER_PENDING = "EDIT_USER_PENDING"
+export const EDIT_USER_SUCCESS = "EDIT_USER_SUCCESS"
+export const EDIT_USER_ERROR   = "EDIT_USER_ERROR"
 
 const mapStateToProps = state => {
     return state
