@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import UserList from "./UserList";
-import UserDialog from"./UserDialog"
+import CreateUserDialog from "./CreateUserDialog"
 
 const mapStateToProps = state => {
 	return state
@@ -40,7 +40,7 @@ class UserManagement extends Component {
 		return(
 			<main className="page-content p-3" style={{ background: 'white' }}>
 				<h1>User Management</h1>
-				<UserDialog/>
+				<CreateUserDialog/>
 				<div className={"pt-2"}></div>
 					<UserList users={this.state.users} />
 			</main>

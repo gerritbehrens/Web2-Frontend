@@ -12,7 +12,7 @@ const mapStateToProps = state => {
     return state
 }
 
-class UserSessionWidget extends Component {
+class CreateUserDialog extends Component {
 
     constructor(props) {
         super(props)
@@ -127,6 +127,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     createUser: userActions.createUser
 }, dispatch)
 
-const ConnectedUserDialog = connect(mapStateToProps, mapDispatchToProps)(UserSessionWidget)
+const ConnectedUserDialog = connect(mapStateToProps, mapDispatchToProps)(CreateUserDialog)
 
 export default ConnectedUserDialog;

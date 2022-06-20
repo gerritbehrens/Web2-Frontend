@@ -1,65 +1,65 @@
 import {connect} from "react-redux";
 
-export const SHOW_USER_DIALOG = "SHOW_USER_DIALOG"
-export const HIDE_USER_DIALOG = "HIDE_USER_DIALOG"
+export const SHOW_EDIT_USER_DIALOG = "SHOW_USER_DIALOG"
+export const HIDE_EDIT_USER_DIALOG = "HIDE_USER_DIALOG"
 
-export const CREATE_USER_PENDING = "CREATE_USER_PENDING"
-export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS"
-export const CREATE_USER_ERROR   = "CREATE_USER_ERROR"
+export const EDIT_USER_PENDING = "CREATE_USER_PENDING"
+export const EDIT_USER_SUCCESS = "CREATE_USER_SUCCESS"
+export const EDIT_USER_ERROR   = "CREATE_USER_ERROR"
 
 const mapStateToProps = state => {
     return state
 }
 
-export function getShowUserDialogAction() {
+export function getShowEditUserDialogAction() {
     return {
-        type: SHOW_USER_DIALOG,
+        type: SHOW_EDIT_USER_DIALOG,
         showUserDialog: true
     }
 }
 
-export function getHideUserDialogAction() {
+export function getHideEditUserDialogAction() {
     return {
-        type: HIDE_USER_DIALOG,
+        type: HIDE_EDIT_USER_DIALOG,
         showUserDialog: false
     }
 }
 
-export function getUserCreatePending() {
+export function getEditUserCreatePending() {
     return{
-        type: CREATE_USER_PENDING
+        type: EDIT_USER_PENDING
     }
 }
 
-export function getUserCreateSuccess(){
+export function getEditUserCreateSuccess(){
     return{
-        type: CREATE_USER_SUCCESS
+        type: EDIT_USER_SUCCESS
     }
 }
 
-export function getUserCreateError(error){
+export function getEditUserCreateError(error){
     return{
-        type: CREATE_USER_ERROR,
+        type: EDIT_USER_ERROR,
         error: error
     }
 }
 
-export function createUser(userID, userName, password, isAdministrator, token){
-    console.log("Create User")
+export function updateUser(userID, userName, password, isAdministrator, token){
+    console.log("Update User")
 
     return dispatch =>{
-        dispatch(getUserCreatePending())
+        dispatch(getEditUserCreatePending())
         createRequest(userID, userName, password, isAdministrator, token)
             .then(
                 user => {
-                    dispatch(getUserCreateSuccess())
+                    dispatch(getEditUserCreateSuccess())
                 },
                 error => {
-                    dispatch(getUserCreateError(error))
+                    dispatch(getEditUserCreateError(error))
                 }
             )
             .catch(error => {
-                dispatch(getUserCreateError(error))
+                dispatch(getEditUserCreateError(error))
             })
     }
 
@@ -74,7 +74,7 @@ function createRequest(userID, userName, password, isAdministrator, token){
     }
 
     const requestOptions = {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type' : 'application/json',
             'Authorization': 'Bearer ' + token
@@ -84,27 +84,18 @@ function createRequest(userID, userName, password, isAdministrator, token){
 
     }
     return fetch('https://localhost/users', requestOptions)
-        .then(handleResponse)
+        .then(handleEditResponse)
         .then(user => {
             return user
         })
 }
 
-export function updateUser(){
-
-}
-
-function handleResponse(response){
+function handleEditResponse(response){
 
     return response.text().then(() => {
         if(!response.ok){
-            if(response.status === 409){
-                console.log("Error 409 Conflict")
-                const error = response.statusText
-                return Promise.reject(error)
-            }
-            if(response.status === 500){
-                console.log("Error 500 Internal Server Error")
+            if(response.status === 404){
+                console.log("Error 404 Conflict")
                 const error = response.statusText
                 return Promise.reject(error)
             }
