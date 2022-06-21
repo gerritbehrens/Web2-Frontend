@@ -66,6 +66,17 @@ class EditUserDialog extends Component {
 
         const error = this.state.error
         let errorWhileUpdate
+        let theButton
+        let userID = this.props.value1
+        let username = this.props.value2
+        let isAdministrator = this.props.value3
+
+        if(this.props.accessToken){
+            userID = this.props.value1
+            theButton = <Button id={"EditButton" + userID} variant="outline-dark" onClick={this.handleShowEditDialog}>Edit</Button>
+            username = this.props.value2
+            isAdministrator = this.props.value3
+        }
 
         if(error){
             errorWhileUpdate = <p className="text-danger">Something went wrong!</p>
@@ -73,7 +84,7 @@ class EditUserDialog extends Component {
 
         return (
             <div>
-                <Button id={"EditButton" + this.props.value1} variant="outline-dark" onClick={this.handleShowEditDialog}>Edit</Button>
+                {theButton}
 
                 <Modal show={showEditDialog} onHide={this.handleCloseEditDialog}>
                     <Modal.Header closeButton>
@@ -84,12 +95,12 @@ class EditUserDialog extends Component {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>UserID</Form.Label>
-                                <Form.Control id="UserIDInput" type="text" value={this.props.value1} name="userIDEdit" disabled={true}/>
+                                <Form.Control id="UserIDInput" type="text" value={userID} name="userIDEdit" disabled={true}/>
                             </Form.Group>
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control id="UserNameInput" type="text" value={this.props.value2} name="userNameEdit" onChange={this.handleChange} />
+                                <Form.Control id="UserNameInput" type="text" value={username} name="userNameEdit"/>
                             </Form.Group>
 
                             <Form.Group className="mb-3">
@@ -99,7 +110,7 @@ class EditUserDialog extends Component {
 
                             <Form.Group className="mb-3">
                                 <Form.Label className="form-check-label">Administrator</Form.Label>
-                                <Form.Control id="isAdministratorInput" className="form-check-input" type="checkbox" defaultChecked={this.props.value3} name="isAdministratorEdit" onChange={this.handleChange} />
+                                <Form.Check id="isAdministratorInput" type="checkbox" checked={isAdministrator} name="isAdministratorEdit" onChange={this.handleChange} />
                             </Form.Group>
 
                             <Form.Group>
