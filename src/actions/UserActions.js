@@ -7,6 +7,9 @@ export const CREATE_USER_PENDING = "CREATE_USER_PENDING"
 export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS"
 export const CREATE_USER_ERROR   = "CREATE_USER_ERROR"
 
+export const GET_ALL_USERS = "GET_ALL_USERS"
+export const UPDATE_USER_MANAGEMENT_FINISHED = "UPDATE_USER_MANAGEMENT_FINISHED"
+
 const mapStateToProps = state => {
     return state
 }
@@ -33,7 +36,8 @@ export function getUserCreatePending() {
 
 export function getUserCreateSuccess(){
     return{
-        type: CREATE_USER_SUCCESS
+        type: CREATE_USER_SUCCESS,
+        updatePage: true
     }
 }
 
@@ -42,6 +46,44 @@ export function getUserCreateError(error){
         type: CREATE_USER_ERROR,
         error: error
     }
+}
+
+export function getAllUsersAction(users){
+    console.log("getAllUsersACTION")
+    return{
+        type: GET_ALL_USERS,
+        users: users,
+
+    }
+}
+
+export function updateUserManagementActionFinished(){
+    return{
+        type: UPDATE_USER_MANAGEMENT_FINISHED,
+        updatePage: false
+    }
+}
+
+export function getAllUsers(token){
+console.log("I am in getAllUsers")
+    return dispatch =>{
+        // build request to rest api for showing all users
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        }
+
+        // send request
+        fetch("https://localhost/users", requestOptions)
+            .then(response => response.json())
+            .then(users => {
+                dispatch(getAllUsersAction(users))
+            })
+    }
+
 }
 
 export function createUser(userID, userName, password, isAdministrator, token){
@@ -88,10 +130,6 @@ function createRequest(userID, userName, password, isAdministrator, token){
         .then(user => {
             return user
         })
-}
-
-export function updateUser(){
-
 }
 
 function handleResponse(response){
