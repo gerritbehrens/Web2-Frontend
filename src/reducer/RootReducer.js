@@ -4,11 +4,13 @@ import * as editUserActions from "../actions/EditUserActions";
 
 const initialState = {
     user: null,
+    users: [],
     loginPending: false,
     showLoginDialog: false,
     showUserDialog: false,
     showUserEditDialog: false,
-    error: null
+    error: null,
+    updatePage: false
 };
 function rootReducer(state = initialState, action) {
 
@@ -63,15 +65,30 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 showUserDialog: false
             }
-        case editUserActions.SHOW_EDIT_USER_DIALOG:
+        // case editUserActions.SHOW_EDIT_USER_DIALOG:
+        //     console.log("Show-Edit-Dialog")
+        //     return{
+        //         ...state,
+        //         showUserEditDialog: true
+        //     }
+        // case editUserActions.HIDE_EDIT_USER_DIALOG:
+        //     return{
+        //         ...state,
+        //         showUserEditDialog: false
+        //     }
+        case userActions.GET_ALL_USERS:
+            console.log("Setzte die User und update Page")
+            console.log(state.updatePage)
             return{
                 ...state,
-                showUserEditDialog: true
+                users: action.users,
+                updatePage: true
             }
-        case editUserActions.HIDE_EDIT_USER_DIALOG:
+        case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
+            console.log(state.updatePage)
             return{
                 ...state,
-                showUserEditDialog: false
+                updatePage: false
             }
         default:
             return state;

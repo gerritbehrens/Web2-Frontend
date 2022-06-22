@@ -1,4 +1,6 @@
 import {connect} from "react-redux";
+import * as UserActions from "./UserActions";
+
 
 export const SHOW_EDIT_USER_DIALOG = "SHOW_EDIT_USER_DIALOG"
 export const HIDE_EDIT_USER_DIALOG = "HIDE_EDIT_USER_DIALOG"
@@ -14,14 +16,14 @@ const mapStateToProps = state => {
 export function getShowEditUserDialogAction() {
     return {
         type: SHOW_EDIT_USER_DIALOG,
-        showUserDialog: true
+        showEditUserDialog: true
     }
 }
 
 export function getHideEditUserDialogAction() {
     return {
         type: HIDE_EDIT_USER_DIALOG,
-        showUserDialog: false
+        showEditUserDialog: false
     }
 }
 
@@ -33,7 +35,7 @@ export function getEditUserCreatePending() {
 
 export function getEditUserCreateSuccess(){
     return{
-        type: EDIT_USER_SUCCESS
+        type: EDIT_USER_SUCCESS,
     }
 }
 
@@ -46,7 +48,7 @@ export function getEditUserCreateError(error){
 
 export function updateUser(userID, userName, password, isAdministrator, token){
     console.log("Update User")
-
+    console.log(token)
     return dispatch =>{
         dispatch(getEditUserCreatePending())
         createRequest(userID, userName, password, isAdministrator, token)
@@ -55,6 +57,7 @@ export function updateUser(userID, userName, password, isAdministrator, token){
                     dispatch(getEditUserCreateSuccess())
                 },
                 error => {
+                    console.log(error)
                     dispatch(getEditUserCreateError(error))
                 }
             )
@@ -66,12 +69,20 @@ export function updateUser(userID, userName, password, isAdministrator, token){
 }
 
 function createRequest(userID, userName, password, isAdministrator, token){
-    const data = {
-        userID: userID,
-        userName: userName,
-        password: password,
-        isAdministrator: isAdministrator
+    let data
+    if(password.length === 0){
+        data = {
+            userName: userName,
+            isAdministrator: isAdministrator
+        }
+    }else{
+        data = {
+            userName: userName,
+            password: password,
+            isAdministrator: isAdministrator
+        }
     }
+
 
     const requestOptions = {
         method: 'PUT',
@@ -83,8 +94,11 @@ function createRequest(userID, userName, password, isAdministrator, token){
 
 
     }
-    return fetch('https://localhost/users', requestOptions)
+    return fetch('https://localhost/users/' + userID, requestOptions)
         .then(handleEditResponse)
+        .then( () => {
+           UserActions.getAllUsers(token)
+        })
         .then(user => {
             return user
         })
@@ -106,7 +120,7 @@ function handleEditResponse(response){
             }
         }
         else{
-            console.log("User Created")
+            console.log("User Edited")
             return{
                 response
             }
@@ -114,7 +128,17 @@ function handleEditResponse(response){
     })
 }
 
-export default connect(mapStateToProps)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getAllUsers: (token) => {
+            dispatch(
+                UserActions.getAllUsers(token)
+            )
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)
 
 
 

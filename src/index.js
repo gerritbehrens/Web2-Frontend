@@ -18,7 +18,7 @@ const initialState = {
 
 const middlewares = [thunk]
 
-const store = createStore(rootReducer, initialState,applyMiddleware(...middlewares))
+const store = createStore(rootReducer, applyMiddleware(...middlewares))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

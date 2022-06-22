@@ -3,11 +3,12 @@ import { Container } from "react-bootstrap"
 import UserCard from "./UserCard"
 
 const UserList = ({users}) => {
+	console.log(users)
 	return(
 
 		<Container>
 			{users.map((user, i) => {
-				return(<UserCard key={i} userID={user.userID} userName={user.userName} isAdministrator={user.isAdministrator} />)
+				return(<UserCard key={i} user={user} />)
 			})}
 		</Container>
 	)

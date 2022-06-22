@@ -1,20 +1,20 @@
 import { Card, Button } from "react-bootstrap"
 import EditUserDialog from "./EditUserDialog";
 
-const UserCard = ({ userID, userName, isAdministrator }) => {
-
+const UserCard = ({ k, user }) => {
+console.log("Create card")
 	return (
 
-	<Card >
-		<Card.Body id={"UserItem" + userID} className={"m-2"}>
-			<Card.Title align={"left"}>UserID: {userID}</Card.Title>
+	<Card key={k} id={"UserItem" + user.userID}>
+		<Card.Body  className={"m-2"}>
+			<Card.Title align={"left"}>UserID: {user.userID}</Card.Title>
 			<Card.Footer>
-				<p align={"left"}>Username: {userName} <br/>
-					Administrator: {isAdministrator ? 'Ja' : 'Nein'}</p>
+				<p align={"left"}>Username: {user.userName} <br/>
+					Administrator: {user.isAdministrator ? 'Ja' : 'Nein'}</p>
 			</Card.Footer>
 
 			<Card.Footer align={"left"}>
-				<EditUserDialog value1={userID} value2={userName} value3={isAdministrator}/>
+				<EditUserDialog key={user.userID} user={user}/>
 				<Button variant="outline-danger">Delete</Button>
 			</Card.Footer>
 		</Card.Body>
