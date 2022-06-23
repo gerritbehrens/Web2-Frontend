@@ -12,10 +12,6 @@ import reportWebVitals from './reportWebVitals';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-const initialState = {
-
-}
-
 const middlewares = [thunk]
 
 const store = createStore(rootReducer, applyMiddleware(...middlewares))

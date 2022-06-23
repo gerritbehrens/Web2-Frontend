@@ -2,9 +2,8 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import UserList from "./UserList";
 import CreateUserDialog from "./CreateUserDialog"
-import {bindActionCreators} from "redux";
 import * as UserActions from "../actions/UserActions";
-import {getAllUsers, updateUserManagementActionFinished} from "../actions/UserActions";
+
 
 const mapStateToProps = state => {
 	return {
@@ -16,39 +15,10 @@ const mapStateToProps = state => {
 
 class UserManagement extends Component {
 
-	constructor(props){
-		super(props)
-	}
-
 	componentDidMount(){
 		this.props.getAllUsers(this.props.accessToken)
-		// // build request to rest api for showing all users
-		// const requestOptions = {
-		// 	method: 'GET',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		'Authorization': 'Bearer ' + this.props.accessToken
-		// 	}
-		// }
-		//
-		// // send request
-		// fetch("https://localhost/users", requestOptions)
-		// 	.then(response => response.json())
-		// 	.then(users => {
-		// 		this.setState({users: users})
-		// 	})
-
 	}
 
-	// componentDidUpdate(prevProps, prevState, snapshot) {
-	// 	console.log(this.props.updatePage)
-	// 	if(this.props.updatePage === true){
-	// 		console.log("Updating view")
-	//
-	// 		this.props.getAllUsers(this.props.accessToken)
-	// 	}
-	//
-	// }
 
 
 	render(){
@@ -70,12 +40,6 @@ const mapDispatchToProps = (dispatch) => {
 				UserActions.getAllUsers(token)
 			)
 		},
-		updateFinished: () => {
-			dispatch(
-				UserActions.updateUserManagementActionFinished()
-			)
-
-	}
 	}
 }
 

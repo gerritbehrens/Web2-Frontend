@@ -9,7 +9,12 @@ import { bindActionCreators } from "redux";
 import * as userActions from "../actions/UserActions";
 
 const mapStateToProps = state => {
-    return state
+    return {
+        error: state.error,
+        accessToken: state.accessToken,
+        showUserDialog: state.showUserDialog,
+        createPending: state.createPending
+    }
 }
 
 class CreateUserDialog extends Component {
@@ -25,6 +30,8 @@ class CreateUserDialog extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+
+
     handleShow(e){
         e.preventDefault()
         const { showUserDialogAction } = this.props
@@ -35,6 +42,15 @@ class CreateUserDialog extends Component {
         const { hideUserDialogAction } = this.props
         hideUserDialogAction()
     }
+
+    //react will call this function if props change
+        componentDidUpdate(prevProps) {
+            //Backend call is ready without error
+            if (prevProps.createPending !== this.props.createPending && !this.props.createPending && !this.props.error) {
+
+                this.handleClose();
+            }
+        }
 
     handleSubmit(e){
          e.preventDefault()
@@ -58,7 +74,7 @@ class CreateUserDialog extends Component {
             showDialog = false
         }
 
-        const error = this.state.error
+        const error = this.props.error
         let buttonState
         let errorWhileCreating
 

@@ -1,6 +1,6 @@
 import * as authenticationActions from "../actions/AuthenticationsActions";
 import * as userActions from "../actions/UserActions"
-import * as editUserActions from "../actions/EditUserActions";
+import * as deleteUserActions from "../actions/DeleteUserAction"
 
 const initialState = {
     user: null,
@@ -9,9 +9,14 @@ const initialState = {
     showLoginDialog: false,
     showUserDialog: false,
     showUserEditDialog: false,
+    showUserDeleteDialog: false,
     error: null,
-    updatePage: false
+    createPending: false,
+    editPending: false,
+    deletePending: false,
+    userToDelete: null,
 };
+
 function rootReducer(state = initialState, action) {
 
     console.log("Bin im Reducer " + action.type)
@@ -58,12 +63,48 @@ function rootReducer(state = initialState, action) {
         case userActions.SHOW_USER_DIALOG:
             return{
                 ...state,
-                showUserDialog: true
+                showUserDialog: true,
             }
         case userActions.HIDE_USER_DIALOG:
             return{
                 ...state,
-                showUserDialog: false
+                showUserDialog: false,
+                createPending: false,
+                error: null
+            }
+        case userActions.CREATE_USER_PENDING:
+            return{
+                ...state,
+                createPending: true
+            }
+        case userActions.CREATE_USER_ERROR:
+            return{
+                ...state,
+                error: action.error,
+                createPending: false
+            }
+        case deleteUserActions.DELETE_USER_SHOW:
+            return{
+                ...state,
+                showUserDeleteDialog: true,
+                userToDelete: action.payload
+            }
+        case deleteUserActions.DELETE_USER_PENDING:
+            return{
+                ...state,
+                deletePending: true
+            }
+        case deleteUserActions.DELETE_USER_ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
+        case deleteUserActions.DELETE_USER_HIDE:
+            return{
+                ...state,
+                showUserDeleteDialog: false,
+                userToDelete: null,
+                error: null,
             }
         // case editUserActions.SHOW_EDIT_USER_DIALOG:
         //     console.log("Show-Edit-Dialog")
@@ -77,15 +118,15 @@ function rootReducer(state = initialState, action) {
         //         showUserEditDialog: false
         //     }
         case userActions.GET_ALL_USERS:
-            console.log("Setzte die User und update Page")
-            console.log(state.updatePage)
             return{
                 ...state,
                 users: action.users,
-                updatePage: true
+                createPending: false,
+                editPending: false,
+                deletePending: false
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
-            console.log(state.updatePage)
+            console.log(action.payload.updatePage)
             return{
                 ...state,
                 updatePage: false

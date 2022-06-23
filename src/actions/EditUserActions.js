@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import * as UserActions from "./UserActions";
+import userActions, {getAllUsers} from "./UserActions";
 
 
 export const SHOW_EDIT_USER_DIALOG = "SHOW_EDIT_USER_DIALOG"
@@ -27,7 +28,7 @@ export function getHideEditUserDialogAction() {
     }
 }
 
-export function getEditUserCreatePending() {
+export function getEditUserPending() {
     return{
         type: EDIT_USER_PENDING
     }
@@ -50,11 +51,11 @@ export function updateUser(userID, userName, password, isAdministrator, token){
     console.log("Update User")
     console.log(token)
     return dispatch =>{
-        dispatch(getEditUserCreatePending())
+        dispatch(getEditUserPending())
         createRequest(userID, userName, password, isAdministrator, token)
             .then(
                 user => {
-                    dispatch(getEditUserCreateSuccess())
+                    dispatch(getAllUsers(token))
                 },
                 error => {
                     console.log(error)

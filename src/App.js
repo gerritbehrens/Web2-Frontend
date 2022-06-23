@@ -11,6 +11,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Forbidden from "./components/Forbidden";
 
 const mapStateToProps = state => {
   return state
@@ -23,6 +24,7 @@ class App extends Component {
     const token = this.props.accessToken
 
     let workspace
+    let userManagement
 
     if (token) {
       workspace = <PrivatePage />
@@ -31,13 +33,20 @@ class App extends Component {
       workspace = <PublicPage />
     }
 
+    if(token){
+      userManagement = <UserManagement />
+    }
+    else{
+      userManagement = <Forbidden />
+    }
+
     return (
       <div className="App">
         <Router>
           <TopMenue />
           <Routes>
             <Route path="/" element={workspace} />
-            <Route path="/userManagement" element={<UserManagement />} />
+            <Route path="/userManagement" element={userManagement} />
           </Routes>
         </Router >
       </div>

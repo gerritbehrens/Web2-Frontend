@@ -1,5 +1,6 @@
-import { Card, Button } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import EditUserDialog from "./EditUserDialog";
+import DeleteUserDialog from "./DeleteUserDialog";
 
 const UserCard = ({ k, user }) => {
 console.log("Create card")
@@ -14,8 +15,8 @@ console.log("Create card")
 			</Card.Footer>
 
 			<Card.Footer align={"left"}>
-				<EditUserDialog key={user.userID} user={user}/>
-				<Button variant="outline-danger">Delete</Button>
+				<EditUserDialog key={user.userID.toString() + "Edit"} user={user}/>
+				<DeleteUserDialog key={user.userID.toString() + "Delete"} user={user}/>
 			</Card.Footer>
 		</Card.Body>
 	</Card>

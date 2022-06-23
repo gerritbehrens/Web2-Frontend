@@ -9,7 +9,6 @@ import { bindActionCreators } from "redux";
 import * as EditUserActions from "../actions/EditUserActions";
 import * as UserActions from "../actions/UserActions";
 
-
 const mapStateToProps = (state) => {
     return {
         userToEdit: state.user,
@@ -28,7 +27,6 @@ class EditUserDialog extends Component {
         password: "",
         isAdministrator: false,
         showDialog: false,
-        LoadNew: false
     }
 
     constructor(props) {
@@ -77,13 +75,14 @@ class EditUserDialog extends Component {
         if(this.props.error == null){
             this.handleCloseEditDialog()
         }
-        console.log("Will update the view")
-        console.log(this.props.updatePage)
-        if(this.props.updatePage === false) {
-            console.log("Updating View")
-            UserActions.getAllUsers(token)
-            UserActions.updateUserManagementActionFinished()
-        }
+        //UserManagement.renderList()
+        // console.log("Will update the view")
+        // console.log(this.props.updatePage)
+        // if(this.props.updatePage === false) {
+        //     console.log("Updating View")
+        //     UserActions.getAllUsers(token)
+        //     UserActions.updateUserManagementActionFinished()
+        // }
     }
 
     render() {
@@ -96,6 +95,7 @@ class EditUserDialog extends Component {
 
         const error = this.props.error
         let errorWhileUpdate
+        //über user.props vllt aktuellere Daten
         let userID = this.state.userID
         let username = this.state.userName
         let isAdministrator = this.state.isAdministrator

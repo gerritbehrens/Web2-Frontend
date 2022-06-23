@@ -34,14 +34,8 @@ export function getUserCreatePending() {
     }
 }
 
-export function getUserCreateSuccess(){
-    return{
-        type: CREATE_USER_SUCCESS,
-        updatePage: true
-    }
-}
-
 export function getUserCreateError(error){
+    console.log(error)
     return{
         type: CREATE_USER_ERROR,
         error: error
@@ -59,8 +53,7 @@ export function getAllUsersAction(users){
 
 export function updateUserManagementActionFinished(){
     return{
-        type: UPDATE_USER_MANAGEMENT_FINISHED,
-        updatePage: false
+        type: UPDATE_USER_MANAGEMENT_FINISHED
     }
 }
 
@@ -94,7 +87,7 @@ export function createUser(userID, userName, password, isAdministrator, token){
         createRequest(userID, userName, password, isAdministrator, token)
             .then(
                 user => {
-                    dispatch(getUserCreateSuccess())
+                    dispatch(getAllUsers(token))
                 },
                 error => {
                     dispatch(getUserCreateError(error))
