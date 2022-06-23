@@ -88,8 +88,6 @@ class EditUserDialog extends Component {
 
     render() {
 
-
-
         let showUserEditDialog = this.state.showDialog;
         if (showUserEditDialog === undefined) {
             console.log("Set showEditUserDialog -> false")
