@@ -84,7 +84,6 @@ class EditUserDialog extends Component {
             UserActions.getAllUsers(token)
             UserActions.updateUserManagementActionFinished()
         }
-
     }
 
     render() {
