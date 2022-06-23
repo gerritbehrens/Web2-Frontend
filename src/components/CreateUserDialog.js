@@ -78,7 +78,10 @@ class CreateUserDialog extends Component {
         let buttonState
         let errorWhileCreating
 
-        buttonState = <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow}>New User</Button>
+        buttonState = <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow}>
+            <i className="fa-solid fa-square-plus"></i>
+            New User
+                        </Button>
 
         if(error){
             errorWhileCreating = <p className="text-danger">Something went wrong!</p>

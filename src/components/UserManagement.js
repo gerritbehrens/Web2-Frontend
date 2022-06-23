@@ -24,10 +24,13 @@ class UserManagement extends Component {
 	render(){
 		return(
 			<main className="page-content p-3" style={{ background: 'white' }}>
-				<h1>User Management</h1>
-				<CreateUserDialog/>
-				<div className={"pt-2"}></div>
-					<UserList users={this.props.users} />
+				<div className={"d-inline-flex gap-2"} align={"left"}>
+					<h1 >User Management</h1>
+					<CreateUserDialog/>
+				</div>
+
+				<div className={"pt-2"}><UserList users={this.props.users} /></div>
+
 			</main>
 		)
 	}

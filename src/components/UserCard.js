@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+import { Card, Form, FormGroup, Modal} from "react-bootstrap"
 import EditUserDialog from "./EditUserDialog";
 import DeleteUserDialog from "./DeleteUserDialog";
 
@@ -15,8 +15,10 @@ console.log("Create card")
 			</Card.Footer>
 
 			<Card.Footer align={"left"}>
-				<EditUserDialog key={user.userID.toString() + "Edit"} user={user}/>
-				<DeleteUserDialog key={user.userID.toString() + "Delete"} user={user}/>
+				<div className={"d-inline-flex gap-2"}>
+					<EditUserDialog key={user.userID.toString() + "Edit"} user={user}/>
+					<DeleteUserDialog key={user.userID.toString() + "Delete"} user={user} className={"px-0-1"}/>
+				</div>
 			</Card.Footer>
 		</Card.Body>
 	</Card>

@@ -84,16 +84,14 @@ class DeleteUserDialog extends Component{
                         </Modal.Header>
 
                         <Modal.Body >
-                            <Form>
-                                <Form.Group>
-                                    <p>Are you sure that you want to delete user with userID: <br/> </p>
-                                    <p>{this.props.userToDelete}</p>
-                                </Form.Group>
-                                <Form.Group>
-                                    <Button id="DeleteUserConfirm" onClick={this.handleSubmitDelete} variant="secondary">Confirm</Button>
-                                    <Button id="DeleteUserCancel" onClick={this.handleCloseDelete} className="m-sm-1" variant="outline-danger">Cancel</Button>
-                                </Form.Group>
-                            </Form>
+                            <p>Are you sure that you want to delete user with userID: <br/> </p>
+                            <p>{this.props.userToDelete}</p>
+
+                        <div className={"d-inline-flex gap-2"}>
+                            <Button id="DeleteUserConfirm" onClick={this.handleSubmitDelete} variant="secondary">Confirm</Button>
+                            <Button id="DeleteUserCancel" onClick={this.handleCloseDelete} variant="outline-danger">Cancel</Button>
+                        </div>
+
                         </Modal.Body>
                     </Modal>
                 </div>
