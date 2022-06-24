@@ -29,3 +29,4 @@ yarn-error.log*
 /.idea/vcs.xml
 /.idea/web2-frontend.iml
 /.idea/WebFrontend.iml
+/src/fontAwesome
