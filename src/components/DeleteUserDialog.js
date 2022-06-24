@@ -76,7 +76,10 @@ class DeleteUserDialog extends Component{
 
         return(
                 <div>
-                    <Button id={"DeleteButton" + userID} variant="outline-danger" onClick={this.handleShowDelete}>Delete</Button>
+                    <Button id={"DeleteButton" + userID} variant="outline-danger" onClick={this.handleShowDelete}>
+                        <i className="fa-solid fa-trash-can"></i>
+                        Delete
+                    </Button>
 
                     <Modal align={"center"} show={showUserDeleteDialog} onHide={this.handleCloseDelete}>
                         <Modal.Header closeButton>

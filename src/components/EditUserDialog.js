@@ -75,14 +75,6 @@ class EditUserDialog extends Component {
         if(this.props.error == null){
             this.handleCloseEditDialog()
         }
-        //UserManagement.renderList()
-        // console.log("Will update the view")
-        // console.log(this.props.updatePage)
-        // if(this.props.updatePage === false) {
-        //     console.log("Updating View")
-        //     UserActions.getAllUsers(token)
-        //     UserActions.updateUserManagementActionFinished()
-        // }
     }
 
     render() {
@@ -95,7 +87,7 @@ class EditUserDialog extends Component {
 
         const error = this.props.error
         let errorWhileUpdate
-        //über user.props vllt aktuellere Daten
+
         let userID = this.state.userID
         let username = this.state.userName
         let isAdministrator = this.state.isAdministrator
@@ -107,7 +99,10 @@ class EditUserDialog extends Component {
         return (
             <div>
 
-                <Button id={"EditButton" + userID} variant="outline-dark" onClick={this.handleShowEditDialog}>Edit</Button>
+                <Button id={"EditButton" + userID} variant="outline-dark" onClick={this.handleShowEditDialog}>
+                    <i className="fa-solid fa-user-pen"></i>
+                    Edit
+                </Button>
 
                 <Modal show={showUserEditDialog} onHide={this.handleCloseEditDialog}>
                     <Modal.Header closeButton>
