@@ -30,3 +30,4 @@ yarn-error.log*
 /.idea/web2-frontend.iml
 /.idea/WebFrontend.iml
 /src/fontAwesome
+/.idea/NewCloneFrontend.iml
