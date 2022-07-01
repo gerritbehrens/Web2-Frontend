@@ -2,10 +2,12 @@ import * as authenticationActions from "../actions/AuthenticationsActions";
 import * as userActions from "../actions/UserActions"
 import * as deleteUserActions from "../actions/DeleteUserAction"
 import * as editUserAction from "../actions/EditUserActions";
+import * as forumActions from "../actions/ForumActions";
 
 const initialState = {
     user: null,
     users: [],
+    forums: [],
     userToEdit: null,
     loginPending: false,
     showLoginDialog: false,
@@ -131,6 +133,11 @@ function rootReducer(state = initialState, action) {
                 createPending: false,
                 editPending: false,
                 deletePending: false
+            }
+        case forumActions.GET_ALL_FORUMS:
+            return{
+                ...state,
+                forums: action.forums
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
             console.log(action.payload.updatePage)

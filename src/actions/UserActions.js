@@ -47,7 +47,6 @@ export function getAllUsersAction(users){
     return{
         type: GET_ALL_USERS,
         users: users,
-
     }
 }
 
