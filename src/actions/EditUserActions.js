@@ -24,7 +24,7 @@ export function getShowEditUserDialogAction() {
 export function getHideEditUserDialogAction() {
     return {
         type: HIDE_EDIT_USER_DIALOG,
-        showEditUserDialog: false
+        showUserEditDialog: false
     }
 }
 
@@ -43,7 +43,7 @@ export function getEditUserCreateSuccess(){
 export function getEditUserCreateError(error){
     return{
         type: EDIT_USER_ERROR,
-        error: error
+        payload: error
     }
 }
 

@@ -44,13 +44,19 @@ class TopMenue extends Component {
 
     render() {
         let usermanagement
+        let forumsThreads
         if (isUserAdmin(this.props.accessToken)) {
             usermanagement =
                 <Link to="/userManagement" id="OpenUserManagementButton" className="nav-link">
                     User Management
                 </Link>
         }
-
+        if(this.props.accessToken){
+            forumsThreads =
+                <Link to={"/forumPage"} id="OpenForumThreadOverviewButton" className="nav-link">
+                    Forums
+                </Link>
+        }
         return (
             <Navbar bg="light" expand="lg" className={"navbar sticky-top navbar-light bg-light"}>
                 <Container>
@@ -62,6 +68,7 @@ class TopMenue extends Component {
 
                         <Nav className="me-auto">
                             <Link to="/" id="OpenPrivatePageButton" className="nav-link">Home</Link>
+                            {forumsThreads}
                             {usermanagement}
 
                             <NavDropdown title="More" id="basic-nav-dropdown">

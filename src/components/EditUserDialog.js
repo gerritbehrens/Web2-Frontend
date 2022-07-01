@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
         //showUserEditDialog: state.showUserEditDialog,
         accessToken: state.accessToken,
         error: state.error,
-        updatePage: state.updatePage
+        updatePage: state.updatePage,
+        showDialog: state.showUserEditDialog
         }
 }
 
@@ -46,7 +47,8 @@ class EditUserDialog extends Component {
 
     handleShowEditDialog(e){
         e.preventDefault()
-        this.setState({showDialog: true})
+        const { showUserEditDialogAction } = this.props
+        showUserEditDialogAction()
     }
 
     handleChange(e) {
@@ -56,7 +58,8 @@ class EditUserDialog extends Component {
 
 
     handleCloseEditDialog() {
-        this.setState({showDialog: false})
+        const { hideUserEditDialogAction } = this.props
+        hideUserEditDialogAction()
     }
 
     handleSubmit(e){
@@ -79,7 +82,7 @@ class EditUserDialog extends Component {
 
     render() {
 
-        let showUserEditDialog = this.state.showDialog;
+        let showUserEditDialog = this.props.showDialog;
         if (showUserEditDialog === undefined) {
             console.log("Set showEditUserDialog -> false")
             showUserEditDialog = false
@@ -154,8 +157,8 @@ class EditUserDialog extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    showEditUserDialogAction: EditUserActions.getShowEditUserDialogAction,
-    hideEditUserDialogAction: EditUserActions.getHideEditUserDialogAction,
+    showUserEditDialogAction: EditUserActions.getShowEditUserDialogAction,
+    hideUserEditDialogAction: EditUserActions.getHideEditUserDialogAction,
     updateUser: EditUserActions.updateUser,
     getAllUsers: (token) => {
         dispatch(

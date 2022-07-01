@@ -5,6 +5,7 @@ import TopMenue from './components/TopMenue';
 import PublicPage from './components/PublicPage';
 import PrivatePage from './components/PrivatePage';
 import UserManagement from './components/UserManagement'
+import ForumPage from './components/ForumPage'
 
 import {
   BrowserRouter as Router,
@@ -25,6 +26,7 @@ class App extends Component {
 
     let workspace
     let userManagement
+    let forumPage = <ForumPage/>
 
     if (token) {
       workspace = <PrivatePage />
@@ -47,6 +49,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={workspace} />
             <Route path="/userManagement" element={userManagement} />
+            <Route path="/forumPage" element={forumPage} />
           </Routes>
         </Router >
       </div>
