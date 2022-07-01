@@ -12,11 +12,9 @@ import * as UserActions from "../actions/UserActions";
 const mapStateToProps = (state) => {
     return {
         userToEdit: state.user,
-        //showUserEditDialog: state.showUserEditDialog,
         accessToken: state.accessToken,
         error: state.error,
         updatePage: state.updatePage,
-        showDialog: state.showUserEditDialog
         }
 }
 
@@ -47,8 +45,7 @@ class EditUserDialog extends Component {
 
     handleShowEditDialog(e){
         e.preventDefault()
-        const { showUserEditDialogAction } = this.props
-        showUserEditDialogAction()
+        this.setState({showDialog: true})
     }
 
     handleChange(e) {
@@ -58,8 +55,7 @@ class EditUserDialog extends Component {
 
 
     handleCloseEditDialog() {
-        const { hideUserEditDialogAction } = this.props
-        hideUserEditDialogAction()
+        this.setState({showDialog: false})
     }
 
     handleSubmit(e){
@@ -82,7 +78,7 @@ class EditUserDialog extends Component {
 
     render() {
 
-        let showUserEditDialog = this.props.showDialog;
+        let showUserEditDialog = this.state.showDialog;
         if (showUserEditDialog === undefined) {
             console.log("Set showEditUserDialog -> false")
             showUserEditDialog = false

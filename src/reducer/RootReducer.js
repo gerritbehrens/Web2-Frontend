@@ -6,6 +6,7 @@ import * as editUserAction from "../actions/EditUserActions";
 const initialState = {
     user: null,
     users: [],
+    userToEdit: null,
     loginPending: false,
     showLoginDialog: false,
     showUserDialog: false,
@@ -107,22 +108,22 @@ function rootReducer(state = initialState, action) {
                 userToDelete: null,
                 error: null,
             }
-        case editUserAction.SHOW_EDIT_USER_DIALOG:
-             console.log("Show-Edit-Dialog")
-             return{
-                 ...state,
-                 showUserEditDialog: true
-             }
-         case editUserAction.HIDE_EDIT_USER_DIALOG:
-             return{
-                 ...state,
-                 showUserEditDialog: false
-             }
-        case editUserAction.EDIT_USER_ERROR:
-                 return {
-                     ...state,
-                     error: action.payload
-                 }
+       // case editUserAction.SHOW_EDIT_USER_DIALOG:
+       //      console.log("Show-Edit-Dialog")
+       //      return{
+       //          ...state,
+       //          showUserEditDialog: true,
+       //      }
+       //  case editUserAction.HIDE_EDIT_USER_DIALOG:
+       //      return{
+       //          ...state,
+       //          showUserEditDialog: false
+       //      }
+       // case editUserAction.EDIT_USER_ERROR:
+       //          return {
+       //              ...state,
+       //              error: action.payload
+       //          }
         case userActions.GET_ALL_USERS:
             return{
                 ...state,

@@ -17,14 +17,14 @@ const mapStateToProps = state => {
 export function getShowEditUserDialogAction() {
     return {
         type: SHOW_EDIT_USER_DIALOG,
-        showEditUserDialog: true
+        showEditUserDialog: true,
     }
 }
 
 export function getHideEditUserDialogAction() {
     return {
         type: HIDE_EDIT_USER_DIALOG,
-        showUserEditDialog: false
+        showEditUserDialog: false
     }
 }
 
@@ -43,7 +43,7 @@ export function getEditUserCreateSuccess(){
 export function getEditUserCreateError(error){
     return{
         type: EDIT_USER_ERROR,
-        payload: error
+        error: error
     }
 }
 
