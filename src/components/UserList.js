@@ -7,7 +7,7 @@ const UserList = ({users}) => {
 
 		<Container>
 			{users.map((user, i) => {
-				return(<UserCard key={i} user={user} />)
+				return(<UserCard key={i} user={user}/>)
 			})}
 		</Container>
 	)

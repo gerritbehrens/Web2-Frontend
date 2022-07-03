@@ -3,14 +3,14 @@ import EditUserDialog from "./EditUserDialog";
 import DeleteUserDialog from "./DeleteUserDialog";
 
 const UserCard = ({ k, user }) => {
-console.log("Create card")
+console.log("Create UserCard")
 	return (
 
 	<Card key={k} id={"UserItem" + user.userID}>
 		<Card.Body  className={"m-2"}>
 			<Card.Title align={"left"}>UserID: {user.userID}</Card.Title>
 			<Card.Footer>
-				<p align={"left"}>Username: {user.userName} <br/>
+				<p align={"left"}>Username: {user.userName}<br/>
 					Administrator: {user.isAdministrator ? 'Ja' : 'Nein'}</p>
 			</Card.Footer>
 

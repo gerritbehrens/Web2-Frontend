@@ -1,24 +1,25 @@
 import * as authenticationActions from "../actions/AuthenticationsActions";
 import * as userActions from "../actions/UserActions"
 import * as deleteUserActions from "../actions/DeleteUserAction"
-import * as editUserAction from "../actions/EditUserActions";
 import * as forumActions from "../actions/ForumActions";
+import * as deleteForumActions from "../actions/DeleteForumActions";
 
 const initialState = {
     user: null,
     users: [],
     forums: [],
-    userToEdit: null,
+    forum: null,
     loginPending: false,
     showLoginDialog: false,
     showUserDialog: false,
-    showUserEditDialog: false,
     showUserDeleteDialog: false,
+    showForumDeleteDialog: false,
     error: null,
     createPending: false,
-    editPending: false,
-    deletePending: false,
+    deleteUserPending: false,
+    deleteForumPending: false,
     userToDelete: null,
+    forumToDelete: null
 };
 
 function rootReducer(state = initialState, action) {
@@ -96,7 +97,7 @@ function rootReducer(state = initialState, action) {
         case deleteUserActions.DELETE_USER_PENDING:
             return{
                 ...state,
-                deletePending: true
+                deleteUserPending: true
             }
         case deleteUserActions.DELETE_USER_ERROR:
             return{
@@ -110,34 +111,42 @@ function rootReducer(state = initialState, action) {
                 userToDelete: null,
                 error: null,
             }
-       // case editUserAction.SHOW_EDIT_USER_DIALOG:
-       //      console.log("Show-Edit-Dialog")
-       //      return{
-       //          ...state,
-       //          showUserEditDialog: true,
-       //      }
-       //  case editUserAction.HIDE_EDIT_USER_DIALOG:
-       //      return{
-       //          ...state,
-       //          showUserEditDialog: false
-       //      }
-       // case editUserAction.EDIT_USER_ERROR:
-       //          return {
-       //              ...state,
-       //              error: action.payload
-       //          }
+        case deleteForumActions.DELETE_FORUM_SHOW:
+            return {
+                ...state,
+                showForumDeleteDialog: true,
+                forumToDelete: action.payload
+            }
+        case deleteForumActions.DELETE_FORUM_PENDING:
+            return{
+                ...state,
+                deleteForumPending: true
+            }
+        case deleteForumActions.DELETE_FORUM_ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
+        case deleteForumActions.DELETE_FORUM_HIDE:
+            return{
+                ...state,
+                showForumDeleteDialog: false,
+                forumToDelete: null,
+                error: null
+            }
         case userActions.GET_ALL_USERS:
             return{
                 ...state,
                 users: action.users,
                 createPending: false,
-                editPending: false,
-                deletePending: false
+                deleteUserPending: false,
             }
         case forumActions.GET_ALL_FORUMS:
+            console.log(action.payload)
             return{
                 ...state,
-                forums: action.forums
+                forums: action.payload,
+                deleteForumPending: false
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
             console.log(action.payload.updatePage)

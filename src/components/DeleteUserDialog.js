@@ -8,7 +8,7 @@ const mapStateToProps = (state) =>{
     return {
         error: state.error,
         userToDelete: state.userToDelete,
-        deletePending: state.deletePending,
+        deletePending: state.deleteUserPending,
         showUserDeleteDialog: state.showUserDeleteDialog,
         accessToken: state.accessToken
     }
@@ -43,10 +43,10 @@ class DeleteUserDialog extends Component{
 
     constructor(props) {
         super(props)
-    this.handleShowDelete = this.handleShowDelete.bind(this)
-    this.handleCloseDelete = this.handleCloseDelete.bind(this)
-    this.handleSubmitDelete = this.handleSubmitDelete.bind(this)
-}
+        this.handleShowDelete = this.handleShowDelete.bind(this)
+        this.handleCloseDelete = this.handleCloseDelete.bind(this)
+        this.handleSubmitDelete = this.handleSubmitDelete.bind(this)
+    }
 
     handleShowDelete(e){
         e.preventDefault()

@@ -1,7 +1,6 @@
 import {connect} from "react-redux";
 import * as UserActions from "./UserActions";
-import userActions, {getAllUsers} from "./UserActions";
-
+import {getAllUsers} from "./UserActions";
 
 export const SHOW_EDIT_USER_DIALOG = "SHOW_EDIT_USER_DIALOG"
 export const HIDE_EDIT_USER_DIALOG = "HIDE_EDIT_USER_DIALOG"
@@ -66,7 +65,6 @@ export function updateUser(userID, userName, password, isAdministrator, token){
                 dispatch(getEditUserCreateError(error))
             })
     }
-
 }
 
 function createRequest(userID, userName, password, isAdministrator, token){
@@ -92,8 +90,6 @@ function createRequest(userID, userName, password, isAdministrator, token){
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify(data)
-
-
     }
     return fetch('https://localhost/users/' + userID, requestOptions)
         .then(handleEditResponse)

@@ -1,5 +1,6 @@
 import {Component} from "react";
-import ForumActions from "../actions/ForumActions";
+import * as ForumActions from "../actions/ForumActions";
+import ForumThreadList from "./ForumThreadList"
 import {connect} from "react-redux";
 
 const mapStateToProps = state => {
@@ -21,16 +22,24 @@ const mapDispatchToProps = (dispatch) => {
 
 class ForumPage extends Component{
 
-    //componentDidMount() {
-    //    this.props.getAllForums(this.props.accessToken)
-    //}
+    componentDidMount() {
+       this.props.getAllForums(this.props.accessToken)
+    }
+
 
 
     render() {
+        console.log(this.props.forums)
         return(
-            <div>
-                <h1>ForumPage is here!</h1>
-            </div>
+            <main className={"page-content p-3"} style={{ background: 'white'}}>
+                <div className={"d-inline-flex gap-2"} align={"left"}>
+                    <h1>Forums</h1>
+                    {/*<CreateForumThread/>*/}
+                </div>
+
+                <div className={"pt-2"}> <ForumThreadList forums={this.props.forums} /> </div>
+
+            </main>
         )
     }
 }

@@ -11,10 +11,8 @@ import * as UserActions from "../actions/UserActions";
 
 const mapStateToProps = (state) => {
     return {
-        userToEdit: state.user,
         accessToken: state.accessToken,
         error: state.error,
-        updatePage: state.updatePage,
         }
 }
 
@@ -66,11 +64,10 @@ class EditUserDialog extends Component {
         const isAdmin = document.querySelector("#isAdministratorInput")
         const isAdministrator = !!isAdmin.checked;
 
-        const {updateUser} = this.props
         const token = this.props.accessToken
 
         console.log(userID+ " - " + username + " - " + password + " - " + isAdministrator)
-        updateUser(userID, username, password, isAdministrator, token)
+        this.props.updateUser(userID, username, password, isAdministrator, token)
         if(this.props.error == null){
             this.handleCloseEditDialog()
         }
@@ -92,14 +89,14 @@ class EditUserDialog extends Component {
         let isAdministrator = this.state.isAdministrator
 
         if(error){
-            errorWhileUpdate = <p className="text-danger">Something went wrong!</p>
+            errorWhileUpdate = <p className="text-danger">Something went wrong while updating!</p>
         }
 
         return (
             <div>
 
                 <Button id={"EditButton" + userID} variant="outline-dark" onClick={this.handleShowEditDialog}>
-                    <i className="fa-solid fa-user-pen"></i>
+                    <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>
 
@@ -142,10 +139,6 @@ class EditUserDialog extends Component {
                             </Form.Group>
                         </Form>
                     </Modal.Body>
-
-                    <Modal.Footer>
-                        Forgot password?
-                    </Modal.Footer>
                 </Modal>
             </div>
         )
@@ -153,8 +146,6 @@ class EditUserDialog extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    showUserEditDialogAction: EditUserActions.getShowEditUserDialogAction,
-    hideUserEditDialogAction: EditUserActions.getHideEditUserDialogAction,
     updateUser: EditUserActions.updateUser,
     getAllUsers: (token) => {
         dispatch(

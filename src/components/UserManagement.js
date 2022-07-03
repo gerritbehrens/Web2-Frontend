@@ -13,6 +13,16 @@ const mapStateToProps = state => {
 	}
 }
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getAllUsers: (token) => {
+			dispatch(
+				UserActions.getAllUsers(token)
+			)
+		},
+	}
+}
+
 class UserManagement extends Component {
 
 	componentDidMount(){
@@ -36,14 +46,6 @@ class UserManagement extends Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getAllUsers: (token) => {
-			dispatch(
-				UserActions.getAllUsers(token)
-			)
-		},
-	}
-}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserManagement)
