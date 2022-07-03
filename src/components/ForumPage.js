@@ -1,4 +1,5 @@
 import {Component} from "react";
+import CreateForumDialog from "./CreateForumDialog"
 import * as ForumActions from "../actions/ForumActions";
 import ForumThreadList from "./ForumThreadList"
 import {connect} from "react-redux";
@@ -34,7 +35,7 @@ class ForumPage extends Component{
             <main className={"page-content p-3"} style={{ background: 'white'}}>
                 <div className={"d-inline-flex gap-2"} align={"left"}>
                     <h1>Forums</h1>
-                    {/*<CreateForumThread/>*/}
+                    <CreateForumDialog/>
                 </div>
 
                 <div className={"pt-2"}> <ForumThreadList forums={this.props.forums} /> </div>

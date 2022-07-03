@@ -16,6 +16,7 @@ const initialState = {
     showForumDeleteDialog: false,
     error: null,
     createPending: false,
+    createForumPending: false,
     deleteUserPending: false,
     deleteForumPending: false,
     userToDelete: null,
@@ -134,6 +135,16 @@ function rootReducer(state = initialState, action) {
                 forumToDelete: null,
                 error: null
             }
+        case forumActions.CREATE_FORUM_PENDING:
+            return{
+                ...state,
+                createForumPending: true
+            }
+        case forumActions.CREATE_FORUM_ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
         case userActions.GET_ALL_USERS:
             return{
                 ...state,
@@ -142,10 +153,10 @@ function rootReducer(state = initialState, action) {
                 deleteUserPending: false,
             }
         case forumActions.GET_ALL_FORUMS:
-            console.log(action.payload)
             return{
                 ...state,
                 forums: action.payload,
+                createForumPending: false,
                 deleteForumPending: false
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:

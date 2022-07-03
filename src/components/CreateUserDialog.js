@@ -47,7 +47,6 @@ class CreateUserDialog extends Component {
         componentDidUpdate(prevProps) {
             //Backend call is ready without error
             if (prevProps.createPending !== this.props.createPending && !this.props.createPending && !this.props.error) {
-
                 this.handleClose();
             }
         }

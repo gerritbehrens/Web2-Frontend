@@ -99,7 +99,7 @@ class EditForumThreadDialog extends Component{
 
                 <Modal show={showUserEditDialog} onHide={this.handleCloseEditDialog}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Edit ForumThread</Modal.Title>
+                        <Modal.Title>Edit Forum</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>

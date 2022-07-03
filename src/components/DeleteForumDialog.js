@@ -80,7 +80,7 @@ class DeleteForumDialog extends Component{
 
                 <Modal align={"center"} show={showForumDeleteDialog} onHide={this.handleCloseDelete}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Delete User</Modal.Title>
+                        <Modal.Title>Delete Forum</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body >
