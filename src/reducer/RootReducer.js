@@ -8,6 +8,7 @@ const initialState = {
     user: null,
     users: [],
     forums: [],
+    messages: [],
     forum: null,
     loginPending: false,
     showLoginDialog: false,
@@ -158,6 +159,12 @@ function rootReducer(state = initialState, action) {
                 forums: action.payload,
                 createForumPending: false,
                 deleteForumPending: false
+            }
+        case forumActions.SET_FORUM:
+            console.log("I set the forum")
+            return{
+                ...state,
+                forum: action.payload
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
             console.log(action.payload.updatePage)

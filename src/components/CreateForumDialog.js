@@ -73,9 +73,8 @@ class CreateForumDialog extends Component {
         let errorWhileCreating
         let buttonState
 
-        buttonState =   <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow}>
+        buttonState = <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow} className={"position-relative"}>
             <i className="fa-solid fa-square-plus px-1"></i>
-            New User
         </Button>
 
         if(error){

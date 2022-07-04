@@ -5,6 +5,8 @@ export const GET_ALL_FORUMS = "GET_ALL_FORUMS"
 export const CREATE_FORUM_PENDING = "CREATE_FORUM_PENDING"
 export const CREATE_FORUM_ERROR   = "CREATE_FORUM_ERROR"
 
+export const SET_FORUM = "SET_FORUM"
+
 const mapStateToProps = state =>{
     return state
 }
@@ -27,6 +29,13 @@ export function getForumCreateError(error){
     return{
         type: CREATE_FORUM_ERROR,
         error: error
+    }
+}
+
+export function setForumAction(forum){
+    return {
+        type: SET_FORUM,
+        payload: forum
     }
 }
 

@@ -33,7 +33,7 @@ class ForumPage extends Component{
         console.log(this.props.forums)
         return(
             <main className={"page-content p-3"} style={{ background: 'white'}}>
-                <div className={"d-inline-flex gap-2"} align={"left"}>
+                <div className={"d-inline-flex gap-2"}>
                     <h1>Forums</h1>
                     <CreateForumDialog/>
                 </div>
