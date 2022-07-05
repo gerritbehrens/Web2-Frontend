@@ -3,7 +3,6 @@ import {Component} from "react";
 import CreateMessageDialog from "./CreateMessageDialog";
 import MessageList from "./MessageList";
 import {connect} from "react-redux";
-import Button from "react-bootstrap/Button";
 import React from "react";
 
 const mapStateToProps = state => {

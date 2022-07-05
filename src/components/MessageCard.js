@@ -1,6 +1,4 @@
 import {Card} from "react-bootstrap"
-import Button from "react-bootstrap/Button";
-import {Link} from "react-router-dom";
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
