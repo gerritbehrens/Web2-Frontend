@@ -3,9 +3,10 @@ import * as userActions from "../actions/UserActions"
 import * as deleteUserActions from "../actions/DeleteUserAction"
 import * as forumActions from "../actions/ForumActions";
 import * as deleteForumActions from "../actions/DeleteForumActions";
+import * as messageActions from "../actions/MessageActions"
 
 const initialState = {
-    user: null,
+    userID: null,
     users: [],
     forums: [],
     messages: [],
@@ -158,13 +159,20 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 forums: action.payload,
                 createForumPending: false,
-                deleteForumPending: false
+                deleteForumPending: false,
+                forum: null
             }
         case forumActions.SET_FORUM:
             console.log("I set the forum")
             return{
                 ...state,
                 forum: action.payload
+            }
+        case messageActions.GET_ALL_MESSAGES:
+            console.log(action.payload)
+            return{
+                ...state,
+                messages: action.payload
             }
         case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
             console.log(action.payload.updatePage)

@@ -27,8 +27,6 @@ class ForumPage extends Component{
        this.props.getAllForums(this.props.accessToken)
     }
 
-
-
     render() {
         console.log(this.props.forums)
         return(

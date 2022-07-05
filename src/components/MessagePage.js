@@ -1,6 +1,6 @@
-import * as MsgActions from "../actions/MessageActions";
+import * as MessageActions from "../actions/MessageActions";
 import {Component} from "react";
-import CreateMsg from "./CreateMessageDialog";
+import CreateMessageDialog from "./CreateMessageDialog";
 import MessageList from "./MessageList";
 import {connect} from "react-redux";
 import Button from "react-bootstrap/Button";
@@ -16,34 +16,36 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // getAllMsg: (token) => {
-        //     dispatch(
-        //         MsgActions.getAllMsg(token)
-        //     )
-        // },
+        getAllMessages: (token, forumID) => {
+            dispatch(
+                MessageActions.getAllMessages(token, forumID)
+            )
+        }
     }
 }
 
 class MessagePage extends Component {
 
-    // componentDidMount() {
-    //     this.props.getAllMsg(this.props.accessToken)
-    // }
+    componentDidMount() {
+        this.props.getAllMessages(this.props.accessToken, this.props.forum._id)
+    }
 
     render() {
-        console.log(this.props.messages)
-        console.log(this.props.forum)
 
         return(
 
             <main className={"page-content p-3"} style={{ background: 'white'}}>
 
                 <div className={"d-inline-flex gap-2"}>
-                    <h1>Messages</h1>
-                    {/*<CreateMsg/>*/}
+                    <div>
+                        <h1>{this.props.forum.name}</h1>
+                        <p>Description: {this.props.forum.description}</p>
+                    </div>
+
+                    <CreateMessageDialog/>
                 </div>
 
-                {/*<div className={"pt-2"}> <MessageList forums={this.props.messages} /> </div>*/}
+                <div className={"pt-2"}> <MessageList messages={this.props.messages} /> </div>
 
             </main>
         )
