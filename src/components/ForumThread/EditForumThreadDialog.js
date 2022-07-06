@@ -93,7 +93,7 @@ class EditForumThreadDialog extends Component{
 
         return(
             <div>
-                <Button id={"EditForumThreadButton" + this.props.forum._id} variant={"dark"} onClick={this.handleShowEditDialog} disabled={disabled}>
+                <Button id={"EditForumThreadButton" + this.props.forum._id} style={{background: "#333333", borderColor: "#333333"}} onClick={this.handleShowEditDialog} disabled={disabled}>
                     <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>
@@ -122,7 +122,7 @@ class EditForumThreadDialog extends Component{
 
                             <FormGroup>
                                 {errorWhileUpdate}
-                                <Button id="SaveForumThreadButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                                <Button id="SaveForumThreadButton" type="submit" onClick={this.handleSubmit} style={{background: "#333333", border: "#333333"}}>
                                     Save
                                 </Button>
 

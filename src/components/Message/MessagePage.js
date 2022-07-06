@@ -41,7 +41,7 @@ class MessagePage extends Component {
                 <div className={"container d-inline-flex gap-2"}>
                     <div align={"left"} >
                         <h1>{this.props.forum.name}</h1>
-                        <p>Description: {this.props.forum.description}</p>
+                        <p>Description: {this.props.forum.description} - by {this.props.forum.ownerID}</p>
                     </div>
                     {createMessageDialog}
                     </div>

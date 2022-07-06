@@ -20,7 +20,7 @@ class LoginButton extends Component {
     render() {
         return (
             <div>
-                <Button id="OpenLoginDialogButton" variant="light" onClick={this.showLoginDialog} >
+                <Button id="OpenLoginDialogButton" onClick={this.showLoginDialog} style={{background: "#00a0aa", borderColor: "#00a0aa"}}>
                     Login
                 </Button>
             </div>

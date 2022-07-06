@@ -71,10 +71,10 @@ class UserSessionWidget extends Component {
         let wrongLogin
 
         if(token){
-            buttonState = <Button to="/" id="LogoutButton" variant="dark" onClick={this.handleLogout} >Logout</Button>
+            buttonState = <Button to="/" id="LogoutButton" onClick={this.handleLogout} style={{background: "#333333", borderColor: "#333333"}}>Logout</Button>
         }
         else{
-            buttonState = <Button id="OpenLoginDialogButton" variant="light" onClick={this.handleShow}>Login</Button>
+            buttonState = <Button id="OpenLoginDialogButton" onClick={this.handleShow} style={{background: "#00a0aa", borderColor: "#00a0aa"}}>Login</Button>
         }
 
         if(error){

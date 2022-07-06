@@ -1,7 +1,7 @@
 import {Component} from "react";
 import * as DeleteActions from "../../actions/User/DeleteUserAction"
 import { connect } from "react-redux"
-import {Button, Modal, Form} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 import React from "react";
 
 const mapStateToProps = (state) =>{
@@ -91,7 +91,7 @@ class DeleteUserDialog extends Component{
                             <p>{this.props.userToDelete}</p>
 
                         <div className={"d-inline-flex gap-2"}>
-                            <Button id="DeleteUserConfirm" onClick={this.handleSubmitDelete} variant="secondary">Confirm</Button>
+                            <Button id="DeleteUserConfirm" onClick={this.handleSubmitDelete} style={{background: "#333333", border: "#333333"}}>Confirm</Button>
                             <Button id="DeleteUserCancel" onClick={this.handleCloseDelete} variant="outline-danger">Cancel</Button>
                         </div>
 

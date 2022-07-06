@@ -32,10 +32,10 @@ class ForumThreadCard extends Component {
         console.log("Create ForumThreadCard")
 
         return (
-            <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
+            <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} style={{color: '#333333', background: '#f4f4f4', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
                 <Card.Body className={"m-2"}>
                     <Card.Title align={"left"}>{this.props.forum.name}</Card.Title>
-                    <Card.Footer style={{color: 'white', background: 'gray'}}>
+                    <Card.Footer style={{color: '#333333', background: '#eaeaea'}}>
                         <p align={"left"}>
                             Topic: {this.props.forum.name}<br/>
                             Description: {this.props.forum.description}<br/>
@@ -43,12 +43,12 @@ class ForumThreadCard extends Component {
                         </p>
                     </Card.Footer>
 
-                    <Card.Footer align={"left"} style={{color: 'white', background: 'gray'}}>
+                    <Card.Footer align={"left"} style={{color: 'white', background: '#eaeaea'}}>
                         <div className={"d-inline-flex gap-2"}>
                             <EditForumThreadDialog key={this.props.forum._id.toString() + "Edit"} forum={this.props.forum}/>
                             <DeleteForumDialog key={this.props.forum._id.toString() + "Delete"} forum={this.props.forum} className={"px-0-1"} />
                             <Link to="/forumMessages" className={"px-0-1"}>
-                                <Button id="ViewForumThreadButton" variant="info" onClick={this.onClick}>
+                                <Button id="ViewForumThreadButton" style={{background: "#00a0aa", borderColor: "#00a0aa"}} onClick={this.onClick}>
                                     <i className="fa-solid fa-angles-right"></i>
                                 </Button>
                             </Link>

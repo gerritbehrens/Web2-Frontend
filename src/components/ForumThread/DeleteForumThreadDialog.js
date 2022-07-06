@@ -91,7 +91,7 @@ class DeleteForumThreadDialog extends Component{
                         <p>{forumName}</p>
 
                         <div className={"d-inline-flex gap-2"}>
-                            <Button id="DeleteForumThreadConfirm" onClick={this.handleSubmitDelete} variant="secondary">Confirm</Button>
+                            <Button id="DeleteForumThreadConfirm" onClick={this.handleSubmitDelete} style={{background: "#333333", border: "#333333"}}>Confirm</Button>
                             <Button id="DeleteForumThreadCancel" onClick={this.handleCloseDelete} variant="outline-danger">Cancel</Button>
                         </div>
                     </Modal.Body>

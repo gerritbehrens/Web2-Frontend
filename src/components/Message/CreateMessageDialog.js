@@ -78,8 +78,8 @@ class CreateMessageDialog extends Component {
         let errorWhileCreating
         let buttonState
 
-        buttonState = <Button id="OpenCreateForumMessageDialogButton" variant="warning" onClick={this.handleShow} className={"pt-2"} style={{ border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
-            <i className="fa-solid fa-square-plus px-1"></i>
+        buttonState = <Button id="OpenCreateForumMessageDialogButton" onClick={this.handleShow} className={"pt-2"} style={{background: "#00a0aa", border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
+            <i className="fa-solid fa-plus"></i>
         </Button>
 
         if(error){
@@ -108,7 +108,7 @@ class CreateMessageDialog extends Component {
                             </Form.Group>
 
                             {errorWhileCreating}
-                            <Button id="CreateForumMessageButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                            <Button id="CreateForumMessageButton" variant="secondary" type="submit" onClick={this.handleSubmit} style={{background: "#333333", border: "#333333"}}>
                                 Create
                             </Button>
 

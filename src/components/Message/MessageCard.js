@@ -1,6 +1,5 @@
 import {Card} from "react-bootstrap"
 import React, {Component} from "react";
-import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -23,10 +22,10 @@ class MessageCard extends Component {
         let dateTime = this.formatTime()
         console.log("Create MessageCard")
         return (
-                <Card key={this.props.k} id={"ForumMessage" + this.props.message._id} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 390 }}>
+                <Card key={this.props.k} id={"ForumMessage" + this.props.message._id} style={{color: '#333333', background: '#f4f4f4', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
                     <Card.Body className={"m-2"}>
                         <Card.Title align={"left"}>{this.props.message.title}</Card.Title>
-                        <Card.Footer style={{color: 'white', background: 'gray'}}>
+                        <Card.Footer style={{color: '#333333', background: '#eaeaea'}}>
                             <p align={"left"}>
                                 Created by: {this.props.message.authorID} at {dateTime}<br/>
                                 Message: {this.props.message.text} <br/>

@@ -95,7 +95,7 @@ class EditUserDialog extends Component {
         return (
             <div>
 
-                <Button id={"EditButton" + userID} variant="dark" onClick={this.handleShowEditDialog}>
+                <Button id={"EditButton" + userID} onClick={this.handleShowEditDialog} style={{background: "#333333", borderColor: "#333333"}}>
                     <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>
@@ -129,7 +129,7 @@ class EditUserDialog extends Component {
 
                             <Form.Group>
                                 {errorWhileUpdate}
-                                <Button id="SaveUserButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                                <Button id="SaveUserButton" type="submit" onClick={this.handleSubmit} style={{background: "#333333", border: "#333333"}}>
                                     Save
                                 </Button>
 

@@ -77,8 +77,8 @@ class CreateUserDialog extends Component {
         let buttonState
         let errorWhileCreating
 
-        buttonState =   <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow} className={"pt-2"} style={{ border: "groove", borderColor: "lightgray", width: "100%", height: "90%"}}>
-                            <i className="fa-solid fa-square-plus px-1"></i>
+        buttonState =   <Button id="OpenCreateUserDialogButton" onClick={this.handleShow} className={"pt-2"} style={{background: "#00a0aa", border: "groove", borderColor: "lightgray", width: "100%", height: "90%"}}>
+                            <i className="fa-solid fa-plus"></i>
                         </Button>
 
         if(error){
@@ -113,10 +113,10 @@ class CreateUserDialog extends Component {
 
                             <Form.Group className="mb-3">
                                 <Form.Label className="form-check-label">Administrator</Form.Label>
-                                <Form.Control id="isAdministratorInput" className="form-check-input" type="checkbox" placeholder="isAdministrator" name="isAdministrator" onChange={this.handleChange} />
+                                <Form.Control id="isAdministratorInput" className="form-check-input" type="checkbox" placeholder="isAdministrator" name="isAdministrator" onChange={this.handleChange}/>
                             </Form.Group>
                             {errorWhileCreating}
-                            <Button id="CreateUserButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                            <Button id="CreateUserButton" variant="secondary" type="submit" onClick={this.handleSubmit} style={{background: "#333333", border: "#333333"}}>
                                 Create
                             </Button>
 

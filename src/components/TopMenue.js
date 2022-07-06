@@ -57,7 +57,7 @@ class TopMenue extends Component {
                 </Link>
 
         return (
-            <Navbar bg="light" expand="lg" className={"navbar sticky-top navbar-light bg-light"}>
+            <Navbar expand="md" className={"navbar sticky-top"}>
                 <Container>
                     <Navbar.Brand to="/">
                         <img width="204" height="60" src={Logo} alt="Logo" />

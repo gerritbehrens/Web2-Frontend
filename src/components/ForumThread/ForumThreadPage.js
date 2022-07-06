@@ -33,7 +33,7 @@ class ForumThreadPage extends Component{
     render() {
         console.log(this.props.forums)
         return(
-            <main className={"container page-content p-3"} style={{ background: 'white'}}>
+            <main className={"container page-content p-3"} style={{ color: '#333333'}}>
                 <div className={"container d-inline-flex gap-2"}>
                     <h1>Forums</h1>
                     <CreateForumDialog/>
