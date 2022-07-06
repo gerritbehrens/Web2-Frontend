@@ -39,7 +39,7 @@ class UserManagement extends Component {
 					<CreateUserDialog/>
 				</div>
 
-				<div className={"pt-2"}><UserList users={this.props.users} /></div>
+				<UserList users={this.props.users} />
 
 			</main>
 		)

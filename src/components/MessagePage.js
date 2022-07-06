@@ -36,13 +36,13 @@ class MessagePage extends Component {
             <main className={"page-content p-3"} style={{ background: 'white'}}>
 
                 <div className={"d-inline-flex gap-2"}>
-                    <div>
+                    <div align={"left"}>
                         <h1>{this.props.forum.name}</h1>
                         <p>Description: {this.props.forum.description}</p>
                     </div>
 
-                    <CreateMessageDialog/>
-                </div>
+                        <CreateMessageDialog/>
+                    </div>
 
                 <div className={"pt-2"}> <MessageList messages={this.props.messages} /> </div>
 

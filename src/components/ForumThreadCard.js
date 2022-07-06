@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 class ForumThreadCard extends Component {
 
     onClick = () => {
-        this.props.setForum(this.props.forum)
+        const forum = this.props.forum
+        this.props.setForum(forum)
     }
 
     render(){
@@ -44,8 +45,8 @@ class ForumThreadCard extends Component {
                         <div className={"d-inline-flex gap-2"}>
                             <EditForumThreadDialog key={this.props.forum._id.toString() + "Edit"} forum={this.props.forum}/>
                             <DeleteForumDialog key={this.props.forum._id.toString() + "Delete"} forum={this.props.forum} className={"px-0-1"} />
-                            <Link to="/forumMessages" id="ViewForumThreadButton" className={"px-0-1"}>
-                                <Button  variant="outline-info" onClick={this.onClick}>
+                            <Link to="/forumMessages" className={"px-0-1"}>
+                                <Button id="ViewForumThreadButton" variant="outline-info" onClick={this.onClick}>
                                     <i className="fa-solid fa-angles-right"></i>
                                 </Button>
                             </Link>

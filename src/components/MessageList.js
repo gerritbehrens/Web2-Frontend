@@ -4,11 +4,11 @@ import MessageCard from "./MessageCard"
 
 const MessageList = ({messages}) => {
     return(
-        <Container>
-            {messages.map((message) => {
+        <Container className={"d-grid"}>
+                {messages.map((message) => {
                 console.log(message)
-                const id = "ForumMessage" + message.forumThreadID
-                return(<MessageCard id={id} key={message.forumThreadID} message={message} className={"card MessageCard forumMessage"}/>)
+                const id = "ForumMessage" + message._id
+                return(<MessageCard id={id} key={message._id} message={message} className={"card MessageCard forumMessage"}/>)
             })}
         </Container>
     )

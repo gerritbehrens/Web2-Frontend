@@ -43,10 +43,10 @@ class TopMenue extends Component {
     }
 
     render() {
-        let usermanagement
+        let userManagement
         let forumsThreads
         if (isUserAdmin(this.props.accessToken)) {
-            usermanagement =
+            userManagement =
                 <Link to="/userManagement" id="OpenUserManagementButton" className="nav-link">
                     User Management
                 </Link>
@@ -69,15 +69,7 @@ class TopMenue extends Component {
                         <Nav className="me-auto">
                             <Link to="/" id="OpenPrivatePageButton" className="nav-link">Home</Link>
                             {forumsThreads}
-                            {usermanagement}
-
-                            <NavDropdown title="More" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
+                            {userManagement}
 
                         </Nav>
                         <UserSessionWidget />

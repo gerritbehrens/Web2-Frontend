@@ -6,9 +6,9 @@ const UserList = ({users}) => {
 	return(
 
 		<Container>
-			{users.map((user, i) => {
-				return(<UserCard key={i} user={user}/>)
-			})}
+				{users.map((user, i) => {
+					return(<UserCard key={i} user={user}/>)
+				})}
 		</Container>
 	)
 }
