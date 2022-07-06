@@ -6,8 +6,8 @@ import Form from "react-bootstrap/Form"
 import { connect } from "react-redux"
 
 import { bindActionCreators } from "redux";
-import * as EditUserActions from "../actions/EditUserActions";
-import * as UserActions from "../actions/UserActions";
+import * as EditUserActions from "../../actions/User/EditUserActions";
+import * as UserActions from "../../actions/User/UserActions";
 
 const mapStateToProps = (state) => {
     return {
@@ -153,7 +153,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
         )
 
     },
-    updateFinished: UserActions.updateUserManagementActionFinished()
 }, dispatch)
 
 const ConnectedEditDialog = connect(mapStateToProps, mapDispatchToProps)(EditUserDialog)

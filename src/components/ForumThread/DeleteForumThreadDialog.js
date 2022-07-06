@@ -1,9 +1,9 @@
 import {Component} from "react";
-import * as DeleteActions from "../actions/DeleteForumActions"
+import * as DeleteActions from "../../actions/ForumThread/DeleteForumThreadActions"
 import { connect } from "react-redux"
-import {Button, Modal, Form} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 import React from "react";
-import * as ForumActions from "../actions/ForumActions";
+import * as ForumActions from "../../actions/ForumThread/CreateForumThreadActions";
 
 const mapStateToProps = (state) =>{
     return {
@@ -40,7 +40,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-class DeleteForumDialog extends Component{
+class DeleteForumThreadDialog extends Component{
 
     handleShowDelete = (e) =>{
         e.preventDefault()
@@ -71,9 +71,12 @@ class DeleteForumDialog extends Component{
 
         let forumName = this.props.forum.name
 
+        let disabled = true
+        if(this.props.accessToken) disabled = false
+
         return(
             <div>
-                <Button id={"DeleteForumThreadButton" + this.props.forum._id} variant={"danger"} onClick={this.handleShowDelete}>
+                <Button id={"DeleteForumThreadButton" + this.props.forum._id} variant={"danger"} onClick={this.handleShowDelete} disabled={disabled}>
                     <i className="fa-solid fa-trash-can"/>
                     Delete
                 </Button>
@@ -98,4 +101,4 @@ class DeleteForumDialog extends Component{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeleteForumDialog)
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteForumThreadDialog)

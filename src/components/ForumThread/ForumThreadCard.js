@@ -1,10 +1,10 @@
 import {Card} from "react-bootstrap"
 import Button from "react-bootstrap/Button";
 import EditForumThreadDialog from "./EditForumThreadDialog"
-import DeleteForumDialog from "./DeleteForumDialog"
+import DeleteForumDialog from "./DeleteForumThreadDialog"
 import {Link} from "react-router-dom";
 import React, {Component} from "react";
-import * as ForumActions from "../actions/ForumActions";
+import * as ForumActions from "../../actions/ForumThread/CreateForumThreadActions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
@@ -30,6 +30,7 @@ class ForumThreadCard extends Component {
 
     render(){
         console.log("Create ForumThreadCard")
+
         return (
             <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
                 <Card.Body className={"m-2"}>
@@ -51,7 +52,6 @@ class ForumThreadCard extends Component {
                                     <i className="fa-solid fa-angles-right"></i>
                                 </Button>
                             </Link>
-
                         </div>
                     </Card.Footer>
                 </Card.Body>

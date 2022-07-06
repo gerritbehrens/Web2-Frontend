@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form"
 import { connect } from "react-redux"
 
 import { bindActionCreators } from "redux";
-import * as userActions from "../actions/UserActions";
+import * as userActions from "../../actions/User/UserActions";
 
 const mapStateToProps = state => {
     return {

@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form"
 
 import { connect } from "react-redux"
 
-import * as authenticationActions from "../actions/AuthenticationsActions"
+import * as authenticationActions from "../../actions/Authentification/AuthenticationsActions"
 import { bindActionCreators } from "redux";
 
 

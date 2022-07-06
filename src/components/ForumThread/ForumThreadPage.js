@@ -1,6 +1,6 @@
 import {Component} from "react";
-import CreateForumDialog from "./CreateForumDialog"
-import * as ForumActions from "../actions/ForumActions";
+import CreateForumDialog from "./CreateForumThreadDialog"
+import * as ForumActions from "../../actions/ForumThread/CreateForumThreadActions";
 import ForumThreadList from "./ForumThreadList"
 import {connect} from "react-redux";
 
@@ -21,7 +21,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-class ForumPage extends Component{
+
+
+class ForumThreadPage extends Component{
+
 
     componentDidMount() {
        this.props.getAllForums(this.props.accessToken)
@@ -43,4 +46,4 @@ class ForumPage extends Component{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ForumPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ForumThreadPage)

@@ -1,4 +1,4 @@
-import * as ForumActions from "./ForumActions";
+import * as ForumActions from "./CreateForumThreadActions";
 
 export const DELETE_FORUM_PENDING = "DELETE_FORUM_PENDING"
 export const DELETE_FORUM_SHOW = "DELETE_FORUM_SHOW"

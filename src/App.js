@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import TopMenue from './components/TopMenue';
 import PublicPage from './components/PublicPage';
-import PrivatePage from './components/PrivatePage';
-import UserManagement from './components/UserManagement'
-import ForumPage from './components/ForumPage'
-import MessagePage from './components/MessagePage'
+import PrivatePage from './components/Authentification/PrivatePage';
+import UserManagement from './components/User/UserPage'
+import ForumPage from './components/ForumThread/ForumThreadPage'
+import MessagePage from './components/Message/MessagePage'
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import Forbidden from "./components/Forbidden";
+import Forbidden from "./components/Authentification/Forbidden";
 
 const mapStateToProps = state => {
   return state
@@ -27,8 +27,8 @@ class App extends Component {
 
     let workspace
     let userManagement
-    let forumPage
-    let messagePage = <MessagePage/>
+    let forumPage = <ForumPage />
+    let messagePage = <MessagePage />
 
     if (token) {
       workspace = <PrivatePage />
@@ -42,13 +42,6 @@ class App extends Component {
     }
     else{
       userManagement = <Forbidden />
-    }
-
-    if(token){
-      forumPage = <ForumPage />
-    }
-    else{
-      forumPage = <Forbidden />
     }
 
     return (

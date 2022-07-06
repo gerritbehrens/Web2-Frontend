@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form"
 import { connect } from "react-redux"
 
 import { bindActionCreators } from "redux";
-import * as ForumActions from "../actions/ForumActions";
+import * as ForumActions from "../../actions/ForumThread/CreateForumThreadActions";
 
 const mapStateToProps = state => {
     return{
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     createForum: ForumActions.createForum
 }, dispatch)
 
-class CreateForumDialog extends Component {
+class CreateForumThreadDialog extends Component {
 
     initialState = {
         ownerID: "",
@@ -72,8 +72,10 @@ class CreateForumDialog extends Component {
         const error = this.props.error
         let errorWhileCreating
         let buttonState
+        let disabled = true
+        if(this.props.accessToken) disabled = false
 
-        buttonState = <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow} className={"pt-2"} style={{ border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
+        buttonState = <Button id="OpenCreateUserDialogButton" variant="warning" onClick={this.handleShow} className={"pt-2"} disabled={disabled} style={{ border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
             <i className="fa-solid fa-square-plus px-1"></i>
         </Button>
 
@@ -122,4 +124,4 @@ class CreateForumDialog extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateForumDialog)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateForumThreadDialog)

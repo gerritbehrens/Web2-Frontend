@@ -1,5 +1,5 @@
 import {Component} from "react";
-import * as DeleteActions from "../actions/DeleteUserAction"
+import * as DeleteActions from "../../actions/User/DeleteUserAction"
 import { connect } from "react-redux"
 import {Button, Modal, Form} from "react-bootstrap";
 import React from "react";

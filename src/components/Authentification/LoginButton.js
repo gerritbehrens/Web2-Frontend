@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 
 import { connect } from "react-redux";
 
-import { getShowLoginDialogAction } from "../actions/AuthenticationsActions";
+import { getShowLoginDialogAction } from "../../actions/Authentification/AuthenticationsActions";
 
 class LoginButton extends Component {
 

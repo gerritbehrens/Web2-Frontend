@@ -1,4 +1,4 @@
-import * as MessageActions from "../actions/MessageActions";
+import * as MessageActions from "../../actions/Message/MessageActions";
 import {Component} from "react";
 import CreateMessageDialog from "./CreateMessageDialog";
 import MessageList from "./MessageList";
@@ -31,6 +31,9 @@ class MessagePage extends Component {
 
     render() {
 
+        let createMessageDialog
+        if(this.props.accessToken) createMessageDialog = <CreateMessageDialog/>
+
         return(
 
             <main className={"container page-content p-3"} style={{ background: 'white'}}>
@@ -40,8 +43,7 @@ class MessagePage extends Component {
                         <h1>{this.props.forum.name}</h1>
                         <p>Description: {this.props.forum.description}</p>
                     </div>
-
-                        <CreateMessageDialog/>
+                    {createMessageDialog}
                     </div>
 
                 <div className={"pt-2"}> <MessageList messages={this.props.messages} /> </div>

@@ -1,5 +1,5 @@
-import {getAllForums} from "./ForumActions";
-import * as ForumActions from "./ForumActions";
+import {getAllForums} from "./CreateForumThreadActions";
+import * as ForumActions from "./CreateForumThreadActions";
 
 export function updateForum(forum, name, description, token){
     console.log("Update Forum - Data:")

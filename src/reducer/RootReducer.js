@@ -1,9 +1,9 @@
-import * as authenticationActions from "../actions/AuthenticationsActions";
-import * as userActions from "../actions/UserActions"
-import * as deleteUserActions from "../actions/DeleteUserAction"
-import * as forumActions from "../actions/ForumActions";
-import * as deleteForumActions from "../actions/DeleteForumActions";
-import * as messageActions from "../actions/MessageActions"
+import * as authenticationActions from "../actions/Authentification/AuthenticationsActions";
+import * as userActions from "../actions/User/UserActions"
+import * as deleteUserActions from "../actions/User/DeleteUserAction"
+import * as forumActions from "../actions/ForumThread/CreateForumThreadActions";
+import * as deleteForumActions from "../actions/ForumThread/DeleteForumThreadActions";
+import * as messageActions from "../actions/Message/MessageActions"
 
 const initialState = {
     userID: null,
@@ -11,7 +11,6 @@ const initialState = {
     forums: [],
     messages: [],
     forum: null,
-    loginPending: false,
     showLoginDialog: false,
     showUserDialog: false,
     showUserDeleteDialog: false,
@@ -163,7 +162,6 @@ function rootReducer(state = initialState, action) {
                 forum: null
             }
         case forumActions.SET_FORUM:
-            console.log("I set the forum")
             return{
                 ...state,
                 forum: action.payload
@@ -173,12 +171,6 @@ function rootReducer(state = initialState, action) {
             return{
                 ...state,
                 messages: action.payload
-            }
-        case userActions.UPDATE_USER_MANAGEMENT_FINISHED:
-            console.log(action.payload.updatePage)
-            return{
-                ...state,
-                updatePage: false
             }
         default:
             return state;

@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import UserList from "./UserList";
 import CreateUserDialog from "./CreateUserDialog"
-import * as UserActions from "../actions/UserActions";
+import * as UserActions from "../../actions/User/UserActions";
 
 
 const mapStateToProps = state => {

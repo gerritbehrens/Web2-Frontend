@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 import {Form, FormGroup, Modal} from "react-bootstrap";
 import {connect} from "react-redux";
 import bindActionCreators from "react-redux/es/utils/bindActionCreators";
-import * as ForumActions from "../actions/ForumActions";
-import * as EditForumActions from "../actions/EditForumActions";
+import * as ForumActions from "../../actions/ForumThread/CreateForumThreadActions";
+import * as EditForumActions from "../../actions/ForumThread/EditForumThreadActions";
 
 const mapStateToProps = (state) => {
     return{
@@ -85,14 +85,15 @@ class EditForumThreadDialog extends Component{
         let name = this.state.name
         let description = this.state.description
 
-
+        let disabled = true
+        if(this.props.accessToken) disabled = false
         if(error){
             errorWhileUpdate = <p className={"text-danger"}>Something went wrong while updating!</p>
         }
 
         return(
             <div>
-                <Button id={"EditForumThreadButton" + this.props.forum._id} variant={"dark"} onClick={this.handleShowEditDialog}>
+                <Button id={"EditForumThreadButton" + this.props.forum._id} variant={"dark"} onClick={this.handleShowEditDialog} disabled={disabled}>
                     <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>

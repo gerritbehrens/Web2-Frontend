@@ -7,7 +7,6 @@ export const CREATE_USER_PENDING = "CREATE_USER_PENDING"
 export const CREATE_USER_ERROR   = "CREATE_USER_ERROR"
 
 export const GET_ALL_USERS = "GET_ALL_USERS"
-export const UPDATE_USER_MANAGEMENT_FINISHED = "UPDATE_USER_MANAGEMENT_FINISHED"
 
 const mapStateToProps = state => {
     return state
@@ -46,12 +45,6 @@ export function getAllUsersAction(users){
     return{
         type: GET_ALL_USERS,
         users: users,
-    }
-}
-
-export function updateUserManagementActionFinished(){
-    return{
-        type: UPDATE_USER_MANAGEMENT_FINISHED
     }
 }
 

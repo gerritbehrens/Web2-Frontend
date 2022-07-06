@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
-import { NavDropdown } from "react-bootstrap";
-import UserSessionWidget from "./UserSessionWidget";
+import UserSessionWidget from "./Authentification/UserSessionWidget";
 
 import Logo from "../images/BHT_Logo_horizontal_Anthrazit_transparent.svg";
 import { connect } from "react-redux"
 import { Buffer } from "buffer";
-import {BrowserRouter as Router, Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const mapStateToProps = state => {
     return state
@@ -51,12 +50,12 @@ class TopMenue extends Component {
                     User Management
                 </Link>
         }
-        if(this.props.accessToken){
+
             forumsThreads =
                 <Link to={"/forumPage"} id="OpenForumThreadOverviewButton" className="nav-link">
                     Forums
                 </Link>
-        }
+
         return (
             <Navbar bg="light" expand="lg" className={"navbar sticky-top navbar-light bg-light"}>
                 <Container>
