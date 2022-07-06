@@ -4,7 +4,7 @@ import ForumThreadCard from "./ForumThreadCard"
 
 const ForumThreadList = ({forums}) => {
     return(
-        <Container>
+        <Container style={{gap: "1rem", display: "flex", flexdirection: "row", flexWrap: "wrap"}}>
             {forums.map((forum) => {
                 const id = "ForumThread" + forum._id
                 return(<ForumThreadCard id={id} key={forum._id} forum={forum} className={"card MessageCard forumThread"}/>)

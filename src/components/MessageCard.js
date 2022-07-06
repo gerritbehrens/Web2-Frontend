@@ -16,17 +16,17 @@ class MessageCard extends Component {
         const time = this.props.message.createdAt.split("T")[1]
 
         const result = date + " - " + time
-        return result.slice(0,18) + " GMT"
+        return result.slice(0,18)
     }
 
     render(){
         let dateTime = this.formatTime()
         console.log("Create MessageCard")
         return (
-                <Card key={this.props.k} id={"ForumMessage" + this.props.message._id} >
+                <Card key={this.props.k} id={"ForumMessage" + this.props.message._id} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 390 }}>
                     <Card.Body className={"m-2"}>
                         <Card.Title align={"left"}>{this.props.message.title}</Card.Title>
-                        <Card.Footer>
+                        <Card.Footer style={{color: 'white', background: 'gray'}}>
                             <p align={"left"}>
                                 Created by: {this.props.message.authorID} at {dateTime}<br/>
                                 Message: {this.props.message.text} <br/>

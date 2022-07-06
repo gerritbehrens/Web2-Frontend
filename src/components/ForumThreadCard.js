@@ -24,16 +24,17 @@ class ForumThreadCard extends Component {
 
     onClick = () => {
         const forum = this.props.forum
-        this.props.setForum(forum)
+        const {setForum} = this.props
+        setForum(forum)
     }
 
     render(){
         console.log("Create ForumThreadCard")
         return (
-            <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} >
+            <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
                 <Card.Body className={"m-2"}>
                     <Card.Title align={"left"}>{this.props.forum.name}</Card.Title>
-                    <Card.Footer>
+                    <Card.Footer style={{color: 'white', background: 'gray'}}>
                         <p align={"left"}>
                             Topic: {this.props.forum.name}<br/>
                             Description: {this.props.forum.description}<br/>
@@ -41,12 +42,12 @@ class ForumThreadCard extends Component {
                         </p>
                     </Card.Footer>
 
-                    <Card.Footer align={"left"}>
+                    <Card.Footer align={"left"} style={{color: 'white', background: 'gray'}}>
                         <div className={"d-inline-flex gap-2"}>
                             <EditForumThreadDialog key={this.props.forum._id.toString() + "Edit"} forum={this.props.forum}/>
                             <DeleteForumDialog key={this.props.forum._id.toString() + "Delete"} forum={this.props.forum} className={"px-0-1"} />
                             <Link to="/forumMessages" className={"px-0-1"}>
-                                <Button id="ViewForumThreadButton" variant="outline-info" onClick={this.onClick}>
+                                <Button id="ViewForumThreadButton" variant="info" onClick={this.onClick}>
                                     <i className="fa-solid fa-angles-right"></i>
                                 </Button>
                             </Link>

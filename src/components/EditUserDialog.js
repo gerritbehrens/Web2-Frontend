@@ -95,7 +95,7 @@ class EditUserDialog extends Component {
         return (
             <div>
 
-                <Button id={"EditButton" + userID} variant="outline-dark" onClick={this.handleShowEditDialog}>
+                <Button id={"EditButton" + userID} variant="dark" onClick={this.handleShowEditDialog}>
                     <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>

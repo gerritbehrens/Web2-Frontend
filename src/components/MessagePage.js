@@ -33,10 +33,10 @@ class MessagePage extends Component {
 
         return(
 
-            <main className={"page-content p-3"} style={{ background: 'white'}}>
+            <main className={"container page-content p-3"} style={{ background: 'white'}}>
 
-                <div className={"d-inline-flex gap-2"}>
-                    <div align={"left"}>
+                <div className={"container d-inline-flex gap-2"}>
+                    <div align={"left"} >
                         <h1>{this.props.forum.name}</h1>
                         <p>Description: {this.props.forum.description}</p>
                     </div>

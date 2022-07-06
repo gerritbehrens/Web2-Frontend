@@ -73,7 +73,7 @@ class DeleteForumDialog extends Component{
 
         return(
             <div>
-                <Button id={"DeleteForumThreadButton" + this.props.forum._id} variant={"outline-danger"} onClick={this.handleShowDelete}>
+                <Button id={"DeleteForumThreadButton" + this.props.forum._id} variant={"danger"} onClick={this.handleShowDelete}>
                     <i className="fa-solid fa-trash-can"/>
                     Delete
                 </Button>

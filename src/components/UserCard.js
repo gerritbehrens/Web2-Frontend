@@ -6,15 +6,15 @@ const UserCard = ({ k, user }) => {
 console.log("Create UserCard")
 	return (
 
-		<Card key={k} id={"UserItem" + user.userID}>
+		<Card key={k} id={"UserItem" + user.userID} style={{color: 'white', background: 'gray', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393 }}>
 			<Card.Body  className={"m-2"}>
 				<Card.Title align={"left"}>UserID: {user.userID}</Card.Title>
-				<Card.Footer>
+				<Card.Footer style={{color: 'white', background: 'gray'}}>
 					<p align={"left"}>Username: {user.userName}<br/>
 						Administrator: {user.isAdministrator ? 'Ja' : 'Nein'}</p>
 				</Card.Footer>
 
-				<Card.Footer align={"left"}>
+				<Card.Footer align={"left"} style={{color: 'white', background: 'gray'}}>
 					<div className={"d-inline-flex gap-2"}>
 						<EditUserDialog key={user.userID.toString() + "Edit"} user={user}/>
 						<DeleteUserDialog key={user.userID.toString() + "Delete"} user={user} className={"px-0-1"}/>

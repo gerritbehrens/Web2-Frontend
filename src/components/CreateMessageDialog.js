@@ -78,7 +78,7 @@ class CreateMessageDialog extends Component {
         let errorWhileCreating
         let buttonState
 
-        buttonState = <Button id="OpenCreateForumMessageDialogButton" variant="warning" onClick={this.handleShow} className={"position-relative"}>
+        buttonState = <Button id="OpenCreateForumMessageDialogButton" variant="warning" onClick={this.handleShow} className={"pt-2"} style={{ border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
             <i className="fa-solid fa-square-plus px-1"></i>
         </Button>
 

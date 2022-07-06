@@ -27,7 +27,7 @@ class App extends Component {
 
     let workspace
     let userManagement
-    let forumPage = <ForumPage/>
+    let forumPage
     let messagePage = <MessagePage/>
 
     if (token) {
@@ -42,6 +42,13 @@ class App extends Component {
     }
     else{
       userManagement = <Forbidden />
+    }
+
+    if(token){
+      forumPage = <ForumPage />
+    }
+    else{
+      forumPage = <Forbidden />
     }
 
     return (

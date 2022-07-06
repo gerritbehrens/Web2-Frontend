@@ -33,8 +33,8 @@ class UserManagement extends Component {
 
 	render(){
 		return(
-			<main className="page-content p-3" style={{ background: 'white' }}>
-				<div className={"d-inline-flex gap-2"} align={"left"}>
+			<main className="container page-content p-3">
+				<div className={"container d-inline-flex gap-2"} align={"left"}>
 					<h1 >User Management</h1>
 					<CreateUserDialog/>
 				</div>

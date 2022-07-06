@@ -76,7 +76,7 @@ class DeleteUserDialog extends Component{
 
         return(
                 <div>
-                    <Button id={"DeleteButton" + userID} variant="outline-danger" onClick={this.handleShowDelete}>
+                    <Button id={"DeleteButton" + userID} variant="danger" onClick={this.handleShowDelete}>
                         <i className="fa-solid fa-trash-can"></i>
                         Delete
                     </Button>

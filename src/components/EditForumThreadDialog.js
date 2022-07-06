@@ -92,7 +92,7 @@ class EditForumThreadDialog extends Component{
 
         return(
             <div>
-                <Button id={"EditForumThreadButton" + this.props.forum._id} variant={"outline-dark"} onClick={this.handleShowEditDialog}>
+                <Button id={"EditForumThreadButton" + this.props.forum._id} variant={"dark"} onClick={this.handleShowEditDialog}>
                     <i className="fa-solid fa-user-pen"/>
                     Edit
                 </Button>

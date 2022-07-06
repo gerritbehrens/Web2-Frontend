@@ -5,7 +5,7 @@ import UserCard from "./UserCard"
 const UserList = ({users}) => {
 	return(
 
-		<Container>
+		<Container style={{gap: "1rem", display: "flex", flexdirection: "row", flexWrap: "wrap"}}>
 				{users.map((user, i) => {
 					return(<UserCard key={i} user={user}/>)
 				})}

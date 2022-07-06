@@ -4,7 +4,7 @@ import MessageCard from "./MessageCard"
 
 const MessageList = ({messages}) => {
     return(
-        <Container className={"d-grid"}>
+        <Container style={{gap: "1rem", display: "flex", flexdirection: "row", flexWrap: "wrap"}}>
                 {messages.map((message) => {
                 console.log(message)
                 const id = "ForumMessage" + message._id

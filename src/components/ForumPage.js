@@ -30,8 +30,8 @@ class ForumPage extends Component{
     render() {
         console.log(this.props.forums)
         return(
-            <main className={"page-content p-3"} style={{ background: 'white'}}>
-                <div className={"d-inline-flex gap-2"}>
+            <main className={"container page-content p-3"} style={{ background: 'white'}}>
+                <div className={"container d-inline-flex gap-2"}>
                     <h1>Forums</h1>
                     <CreateForumDialog/>
                 </div>
