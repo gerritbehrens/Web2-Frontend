@@ -12,7 +12,6 @@ const mapStateToProps = state =>{
 }
 
 export function getAllForumsAction(forums){
-    console.log("getAllForumsACTION")
     return{
         type: GET_ALL_FORUMS,
         payload: forums,
@@ -40,7 +39,6 @@ export function setForumAction(forum){
 }
 
 export function getAllForums(){
-    console.log("I am in getAllForums")
     return dispatch =>{
         // build request to rest api for showing all users
         const requestOptions = {
@@ -60,8 +58,6 @@ export function getAllForums(){
 }
 
 export function createForum(ownerID, name, description, token){
-    console.log("Create Forum")
-
     return dispatch => {
         dispatch(getForumCreatePending())
         createRequest(ownerID, name, description, token)
@@ -106,23 +102,19 @@ function handleResponse(response){
     return response.text().then(() => {
         if(!response.ok){
             if(response.status === 409){
-                console.log("Error 409 Conflict")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 500){
-                console.log("Error 500 Internal Server Error")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 400){
-                console.log("Error 400 Bad Request")
                 const error = response.statusText
                 return Promise.reject(error)
             }
         }
         else{
-            console.log("User Created")
             return{
                 response
             }

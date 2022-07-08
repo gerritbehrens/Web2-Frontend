@@ -66,7 +66,6 @@ class EditUserDialog extends Component {
 
         const token = this.props.accessToken
 
-        console.log(userID+ " - " + username + " - " + password + " - " + isAdministrator)
         this.props.updateUser(userID, username, password, isAdministrator, token)
         if(this.props.error == null){
             this.handleCloseEditDialog()
@@ -77,7 +76,6 @@ class EditUserDialog extends Component {
 
         let showUserEditDialog = this.state.showDialog;
         if (showUserEditDialog === undefined) {
-            console.log("Set showEditUserDialog -> false")
             showUserEditDialog = false
         }
 

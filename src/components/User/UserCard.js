@@ -3,7 +3,6 @@ import EditUserDialog from "./EditUserDialog";
 import DeleteUserDialog from "./DeleteUserDialog";
 
 const UserCard = ({ k, user }) => {
-console.log("Create UserCard")
 	return (
 
 		<Card key={k} id={"UserItem" + user.userID} style={{color: '#333333', background: '#f4f4f4', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>

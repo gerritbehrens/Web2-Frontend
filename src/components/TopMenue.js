@@ -32,29 +32,18 @@ function isUserAdmin(token) {
 
 class TopMenue extends Component {
 
-    constructor(props) {
-        super(props)
-        this.handleRoute = this.handleRoute.bind(this)
-    }
-
-    handleRoute(e) {
-        console.log("Handle Route")
-    }
-
     render() {
         let userManagement
-        let forumsThreads
+        let forumsThreads = <Link to={"/forumPage"} id="OpenForumThreadOverviewButton" className="nav-link">
+                                Forums
+                            </Link>
+
         if (isUserAdmin(this.props.accessToken)) {
             userManagement =
                 <Link to="/userManagement" id="OpenUserManagementButton" className="nav-link">
                     User Management
                 </Link>
         }
-
-            forumsThreads =
-                <Link to={"/forumPage"} id="OpenForumThreadOverviewButton" className="nav-link">
-                    Forums
-                </Link>
 
         return (
             <Navbar expand="md" className={"navbar sticky-top"}>

@@ -26,8 +26,6 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
 
-    console.log("Bin im Reducer " + action.type)
-
     switch (action.type) {
         case authenticationActions.SHOW_LOGIN_DIALOG:
             return {
@@ -167,7 +165,6 @@ function rootReducer(state = initialState, action) {
                 forum: action.payload
             }
         case messageActions.GET_ALL_MESSAGES:
-            console.log(action.payload)
             return{
                 ...state,
                 messages: action.payload

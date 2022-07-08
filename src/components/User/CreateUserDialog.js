@@ -62,7 +62,6 @@ class CreateUserDialog extends Component {
          const {createUser} = this.props
          const token = this.props.accessToken
 
-         console.log(userID+ " - " + username + " - " + password + " - " + isAdministrator)
          createUser(userID, username, password, isAdministrator, token)
     }
 
@@ -98,7 +97,7 @@ class CreateUserDialog extends Component {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>UserID</Form.Label>
-                                <Form.Control id="UserIDInput" type="text" placeholder="User ID" name="userID" onChange={this.handleChange} />
+                                <Form.Control id="UserIDInput" type="text" placeholder="User ID" name="userID" className={"control-label"} onChange={this.handleChange} />
                             </Form.Group>
 
                             <Form.Group className="mb-3">

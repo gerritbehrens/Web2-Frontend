@@ -6,7 +6,6 @@ const MessageList = ({messages}) => {
     return(
         <Container style={{gap: "1rem", display: "flex", flexdirection: "row", flexWrap: "wrap"}}>
                 {messages.map((message) => {
-                console.log(message)
                 const id = "ForumMessage" + message._id
                 return(<MessageCard id={id} key={message._id} message={message} className={"card MessageCard forumMessage"}/>)
             })}

@@ -51,8 +51,6 @@ export function getLogoutUserAction(){
 }
 
 export function authenticateUser(userID, password) {
-    console.log("Authenticate")
-
     return dispatch => {
         dispatch(getAuthenticateUserPendingAction())
         login(userID, password)
@@ -107,7 +105,6 @@ function handleResponse(response){
             const error = response.statusText
             return Promise.reject(error)
         } else {
-            console.log(token)
             return {
                 accessToken: token
             }

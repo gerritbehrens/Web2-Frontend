@@ -29,7 +29,6 @@ class ForumThreadCard extends Component {
     }
 
     render(){
-        console.log("Create ForumThreadCard")
 
         return (
             <Card key={this.props.k} id={"ForumThread" + this.props.forum._id} style={{color: '#333333', background: '#f4f4f4', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>

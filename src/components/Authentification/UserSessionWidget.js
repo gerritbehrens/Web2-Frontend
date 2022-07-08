@@ -102,7 +102,7 @@ class UserSessionWidget extends Component {
                                 <Form.Control id="LoginPasswordInput" type="password" placeholder="Password" name='password' onChange={this.handleChange} />
                             </Form.Group>
                             {wrongLogin}
-                            <Button id="LoginButton" variant="secondary" type="submit" onClick={this.handleSubmit}>
+                            <Button id="LoginButton" variant="secondary" type="submit" onClick={this.handleSubmit} style={{background: "#333333", borderColor: "#333333"}}>
                                 Login
                             </Button>
                             

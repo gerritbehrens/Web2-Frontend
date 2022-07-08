@@ -60,7 +60,6 @@ class DeleteUserDialog extends Component{
     handleSubmitDelete(e){
         e.preventDefault()
         const {deleteUser} = this.props
-        console.log(this.props)
         deleteUser(this.props.userToDelete, this.props.accessToken)
         this.handleCloseDelete();
     }

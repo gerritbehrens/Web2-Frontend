@@ -10,7 +10,6 @@ const mapStateToProps = state =>{
 }
 
 export function getAllMessagesAction(messages){
-    console.log("getAllMessagesAction")
     return{
         type: GET_ALL_MESSAGES,
         payload: messages
@@ -40,7 +39,7 @@ export function getAllMessages(token, forumID){
             }
         }
         // send request
-        fetch("https://localhost/forumThreads" + "/" + forumID + "/" + "forumMessages", requestOptions)
+        fetch("https://localhost/forumThreads/" + forumID + "/forumMessages", requestOptions)
             .then(response => response.json())
             .then(messages => {
                 dispatch(getAllMessagesAction(messages))
@@ -49,7 +48,6 @@ export function getAllMessages(token, forumID){
 }
 
 export function createMessage(forumID, title, text, authorID, token){
-    console.log(forumID + " " + title + " " + text + " " + authorID + " " + token)
 
     return dispatch => {
         dispatch(getMessageCreatePending())
@@ -95,23 +93,19 @@ function handleResponse(response){
     return response.text().then(() => {
         if(!response.ok){
             if(response.status === 409){
-                console.log("Error 409 Conflict")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 500){
-                console.log("Error 500 Internal Server Error")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 400){
-                console.log("Error 400 Bad Request")
                 const error = response.statusText
                 return Promise.reject(error)
             }
         }
         else{
-            console.log("User Created")
             return{
                 response
             }

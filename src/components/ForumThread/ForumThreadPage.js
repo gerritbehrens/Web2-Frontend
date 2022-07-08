@@ -31,7 +31,6 @@ class ForumThreadPage extends Component{
     }
 
     render() {
-        console.log(this.props.forums)
         return(
             <main className={"container page-content p-3"} style={{ color: '#333333'}}>
                 <div className={"container d-inline-flex gap-2"}>
@@ -39,7 +38,7 @@ class ForumThreadPage extends Component{
                     <CreateForumDialog/>
                 </div>
 
-                <div className={"pt-2"}> <ForumThreadList forums={this.props.forums} /> </div>
+                <div className={"pt-2"}> <ForumThreadList id={"ForumThreadList"} className={"card-columns"} forums={this.props.forums} /> </div>
 
             </main>
         )

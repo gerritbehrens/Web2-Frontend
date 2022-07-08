@@ -74,7 +74,6 @@ class EditForumThreadDialog extends Component{
     render() {
         let showUserEditDialog = this.state.showDialog;
         if(showUserEditDialog === undefined) {
-            console.log("Set showEditForumThreadDialog -> false")
             showUserEditDialog = false
         }
 

@@ -34,8 +34,6 @@ export function getDeleteUserHideAction(){
 }
 
 export function deleteUser(userID, token){
-    console.log("Delete User")
-
     return dispatch => {
         dispatch(getDeleteUserPendingAction())
         createRequest(userID, token)
@@ -66,23 +64,19 @@ function handleResponse(response){
     return response.text().then(() => {
         if(!response.ok){
             if(response.status === 404){
-                console.log("Error 404 Conflict")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 500){
-                console.log("Error 500 Internal Server Error")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 400){
-                console.log("Error 400 Bad Request")
                 const error = response.statusText
                 return Promise.reject(error)
             }
         }
         else{
-            console.log("User Deleted")
             return{
                 response
             }

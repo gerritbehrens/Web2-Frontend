@@ -65,7 +65,6 @@ class CreateForumThreadDialog extends Component {
     render() {
         let showUserDialog = this.state.showDialog;
         if(showUserDialog === undefined) {
-            console.log("Set showEditForumThreadDialog -> false")
             showUserDialog = false
         }
 
@@ -75,7 +74,7 @@ class CreateForumThreadDialog extends Component {
         let disabled = true
         if(this.props.accessToken) disabled = false
 
-        buttonState = <Button id="OpenCreateUserDialogButton" onClick={this.handleShow} className={"pt-2"} disabled={disabled} style={{background: "#00a0aa", border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
+        buttonState = <Button id="OpenCreateForumThreadDialogButton" onClick={this.handleShow} className={"pt-2"} disabled={disabled} style={{background: "#00a0aa", border: "groove", borderColor: "lightgray",width: "100%", height: "90%"}}>
             <i className="fa-solid fa-plus"></i>
         </Button>
 
@@ -109,15 +108,11 @@ class CreateForumThreadDialog extends Component {
                                 Create
                             </Button>
 
-                            <Button id={"CancelCreateForumThreadButton"} className={"m-sm-1"} variant={"outline-danger"} onClick={this.handleCloseEditDialog}>
+                            <Button id="CancelCreateForumThreadButton" className={"m-sm-1"} variant={"outline-danger"} onClick={this.handleCloseEditDialog}>
                                 Cancel
                             </Button>
                         </Form>
                     </Modal.Body>
-
-                    <Modal.Footer>
-                        Forgot password?
-                    </Modal.Footer>
                 </Modal>
             </div>
         )

@@ -41,7 +41,6 @@ export function getUserCreateError(error){
 }
 
 export function getAllUsersAction(users){
-    console.log("getAllUsersACTION")
     return{
         type: GET_ALL_USERS,
         users: users,
@@ -49,7 +48,6 @@ export function getAllUsersAction(users){
 }
 
 export function getAllUsers(token){
-console.log("I am in getAllUsers")
     return dispatch =>{
         // build request to rest api for showing all users
         const requestOptions = {
@@ -71,8 +69,6 @@ console.log("I am in getAllUsers")
 }
 
 export function createUser(userID, userName, password, isAdministrator, token){
-    console.log("Create User")
-
     return dispatch =>{
         dispatch(getUserCreatePending())
         createRequest(userID, userName, password, isAdministrator, token)
@@ -121,23 +117,19 @@ function handleResponse(response){
     return response.text().then(() => {
         if(!response.ok){
             if(response.status === 409){
-                console.log("Error 409 Conflict")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 500){
-                console.log("Error 500 Internal Server Error")
                 const error = response.statusText
                 return Promise.reject(error)
             }
             if(response.status === 400){
-                console.log("Error 400 Bad Request")
                 const error = response.statusText
                 return Promise.reject(error)
             }
         }
         else{
-            console.log("User Created")
             return{
                 response
             }

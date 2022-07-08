@@ -20,7 +20,6 @@ class MessageCard extends Component {
 
     render(){
         let dateTime = this.formatTime()
-        console.log("Create MessageCard")
         return (
                 <Card key={this.props.k} id={"ForumMessage" + this.props.message._id} style={{color: '#333333', background: '#f4f4f4', border: "groove", borderColor: "lightgray", width: '18rem', minWidth: 393}}>
                     <Card.Body className={"m-2"}>

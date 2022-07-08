@@ -56,8 +56,6 @@ class CreateMessageDialog extends Component {
         const text = document.querySelector("#ForumMessageTextInput").value
         const authorID = this.props.userID
 
-        console.log(authorID)
-
         const token = this.props.accessToken
         const forumID = this.props.forum._id
 
@@ -70,7 +68,6 @@ class CreateMessageDialog extends Component {
     render() {
         let showUserDialog = this.state.showDialog;
         if(showUserDialog === undefined) {
-            console.log("Set showCreateMessageDialog -> false")
             showUserDialog = false
         }
 
@@ -104,7 +101,7 @@ class CreateMessageDialog extends Component {
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Text</Form.Label>
-                                <Form.Control id="ForumMessageTextInput" type="text" placeholder="Your text" name="description" onChange={this.handleChange} />
+                                <textarea  id="ForumMessageTextInput" placeholder="Your text" name="description" onChange={this.handleChange} className={"form-control"}/>
                             </Form.Group>
 
                             {errorWhileCreating}
@@ -117,10 +114,6 @@ class CreateMessageDialog extends Component {
                             </Button>
                         </Form>
                     </Modal.Body>
-
-                    <Modal.Footer>
-                        Forgot password?
-                    </Modal.Footer>
                 </Modal>
             </div>
         )
